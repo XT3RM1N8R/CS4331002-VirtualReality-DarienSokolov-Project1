@@ -5,11 +5,13 @@
 </head>
 <body class="a-body ">
 
-<a-scene inspector="" class="fullscreen" keyboard-shortcuts="" screenshot="" vr-mode-ui="">
+<a-scene inspector="" class="fullscreen" keyboard-shortcuts="" screenshot="" vr-mode-ui=""><canvas class="a-canvas" data-aframe-canvas="true" width="300" height="150"></canvas>
     <a-assets>
         <audio id="blip1" src="assets/horned_owl.wav"></audio>
         <a-asset-item id="drone" src="assets/busterDrone.gltf">
-    </a-asset-item></a-assets>
+        <a-asset-item id="creeper_head" src="assets/Assets/Models/creeper_face.obj">
+        <img id="creeper_image" src="images/c.jpg">
+    </a-asset-item></a-asset-item></a-assets>
     <a-sky color="#ECECEC" material="" geometry=""></a-sky>
     <!-- a-entity position="54 1.5 12">
         <a-camera universal-controls>
@@ -21,8 +23,9 @@
     <a-box color="tomato" position="21.755 0 14.402" depth="2" height="2" width="2" class="intersectable" material="" geometry="" id="Box 1">
        <a-animation begin="click" attribute="position" from="45 0 6" to="45 0 -10" dur="3000"></a-animation>
     </a-box>
-    <a-box material="opacity:0;transparent:true;color:tomato" depth="2" height="2" width="2" sound="on:click;src:assets/horned_owl.wav" class="intersectable" position="16.151 2.591 9.766" geometry="" id="Bird Sound"></a-box>
-    <a-obj-model src="assets/AngryBirdsRedsMask.obj" mtl="assets/AngryBirdsRedsMask.mtl" position="18.011 1.5 6" material="" obj-model="" id="Angry Bird Red"></a-obj-model>
+    <a-obj-model src="assets/AngryBirdsRedsMask.obj" mtl="assets/AngryBirdsRedsMask.mtl" position="18.011 1.5 6" material="" obj-model="" id="Angry Bird Red">
+            <a-box material="opacity:0;transparent:true;color:tomato" depth="2" height="2" width="2" sound="on:click;src:assets/horned_owl.wav" class="intersectable" position="0 0.71 0" geometry="" id="Bird Sound"></a-box>
+    </a-obj-model>
     <a-entity collada-model="assets/stormtrooper.dae" rotation="90 0 0" position="8.993 0 6" id="Stormtrooper"></a-entity>
 
 
@@ -70,7 +73,7 @@
     
 
     <!-- Walls  -->
-    <a-entity static-body="" geometry="height:14;width:50" position="-26.179 6.5 5" rotation="0 90 0" material="repeat:4 2;roughness:1;src:images/brick1.jpg" id="West Wall"></a-entity>
+    <a-entity static-body="" geometry="height:14;width:50" position="-26.179 6.5 5" rotation="0 90 0" material="repeat:4 2;roughness:1;src:images/brick1.jpg" id="West Wall" mixin="null"></a-entity>
     <a-entity static-body="" geometry="height:14;width:50" position="25.67 6.5 5" rotation="0 90 0" material="repeat:4 2;roughness:1;src:images/brick1.jpg" id="East Wall"></a-entity>
     <a-entity static-body="" geometry="height:14;width:160" position="0 6.5 -20" material="repeat:12 2;roughness:1;src:images/brick1.jpg" scale="0.361 1 1" id="North Wall"></a-entity>
     <a-entity static-body="" geometry="height:14;width:160" position="0 6.5 30" material="repeat:12 2;roughness:1;src:images/brick1.jpg" scale="0.411 1 1" id="South Wall"></a-entity>
@@ -303,7 +306,7 @@
 
     <!-- Table -->
     
-</a-scene>
+<a-entity position="8.188 6.221 12.099" obj-model="obj:assets/Assets/Models/creeper_face.obj" material="src:[object HTMLImageElement]"></a-entity></a-scene>
 
 
 
