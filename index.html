@@ -17,45 +17,45 @@
                               radiusInner: 0.01; segmentsTheta: 32" material="color: #283644; shader: flat" position="0 0 -0.75"></a-entity>
         </a-camera>
     </a-entity -->
-    <a-gltf-model src="#drone" position="0 5 0" animation-mixer="" gltf-model="assets/busterDrone.gltf"></a-gltf-model>
-    <a-box color="tomato" position="21.755 0 14.402" depth="2" height="2" width="2" class="intersectable" material="" geometry="">
+    <a-gltf-model src="#drone" position="0 5 0" animation-mixer="" gltf-model="assets/busterDrone.gltf" id="Buster Drone"></a-gltf-model>
+    <a-box color="tomato" position="21.755 0 14.402" depth="2" height="2" width="2" class="intersectable" material="" geometry="" id="Box 1">
        <a-animation begin="click" attribute="position" from="45 0 6" to="45 0 -10" dur="3000"></a-animation>
     </a-box>
-    <a-box material="opacity:0;transparent:true;color:tomato" depth="2" height="2" width="2" sound="on:click;src:assets/horned_owl.wav" class="intersectable" position="16.151 1.5 6" geometry=""></a-box>
-    <a-obj-model src="assets/AngryBirdsRedsMask.obj" mtl="assets/AngryBirdsRedsMask.mtl" position="15.732 1.5 6" material="" obj-model=""></a-obj-model>
-    <a-entity collada-model="assets/stormtrooper.dae" rotation="90 0 0" position="8.993 0 6"></a-entity>
+    <a-box material="opacity:0;transparent:true;color:tomato" depth="2" height="2" width="2" sound="on:click;src:assets/horned_owl.wav" class="intersectable" position="16.151 2.591 9.766" geometry="" id="Bird Sound"></a-box>
+    <a-obj-model src="assets/AngryBirdsRedsMask.obj" mtl="assets/AngryBirdsRedsMask.mtl" position="18.011 1.5 6" material="" obj-model="" id="Angry Bird Red"></a-obj-model>
+    <a-entity collada-model="assets/stormtrooper.dae" rotation="90 0 0" position="8.993 0 6" id="Stormtrooper"></a-entity>
 
 
     <!-- Ceiling -->
-    <a-entity static-body="" geometry="depth:50;height:0.1;width:160" position="0 14 5" material="repeat:20 12;shader:flat;side:double;src:images/ceiling2.jpg" visible="false"></a-entity>
+    <a-entity static-body="" geometry="depth:50;height:0.1;width:160" position="0 14 5" material="repeat:20 12;shader:flat;side:double;src:images/ceiling2.jpg" visible="false" id="Ceiling"></a-entity>
     <!-- Floor -->
-    <a-entity static-body="" geometry="depth:50;height:0.1;width:160" position="0 -0.5 5" material="repeat:12 5;shader:flat;side:double;src:images/floor.jpg" scale="0.375 1 1"></a-entity>
+    <a-entity static-body="" geometry="depth:50;height:0.1;width:160" position="0 -0.5 5" material="repeat:12 5;shader:flat;side:double;src:images/floor.jpg" scale="0.375 1 1" id="Floor"></a-entity>
 
     <!-- Trim -->
-    <a-entity geometry="depth:0.6;width:160" position="0 13.5 -19.7" material="repeat:32 1;roughness:1;src:images/trim.jpg" scale="0.456 1 1"></a-entity>
-    <a-entity geometry="depth:0.6;width:160" position="0 13.5 29.7" material="repeat:32 1;roughness:1;src:images/trim.jpg" scale="0.4 1 1"></a-entity>
+    <a-entity geometry="depth:0.6;width:160" position="0 13.5 -19.7" material="repeat:32 1;roughness:1;src:images/trim.jpg" scale="0.456 1 1" id="North Trim"></a-entity>
+    <a-entity geometry="depth:0.6;width:160" position="0 13.5 29.7" material="repeat:32 1;roughness:1;src:images/trim.jpg" scale="0.4 1 1" id="South Trim"></a-entity>
     
     
 
     <!-- H Beams  -->
-    <a-entity geometry="width:50" position="0 13.5 5" rotation="0 90 0" material="repeat:2 1;roughness:1;src:images/beam.jpg"></a-entity>
-    <a-entity geometry="width:50" position="-20 13.5 5" rotation="0 90 0" material="repeat:2 1;roughness:1;src:images/beam.jpg"></a-entity>
-    <a-entity geometry="width:50" position="20 13.5 5" rotation="0 90 0" material="repeat:2 1;roughness:1;src:images/beam.jpg"></a-entity>
+    <a-entity geometry="width:50" position="0 13.5 5" rotation="0 90 0" material="repeat:2 1;roughness:1;src:images/beam.jpg" id="H-Beam 3"></a-entity>
+    <a-entity geometry="width:50" position="-20 13.5 5" rotation="0 90 0" material="repeat:2 1;roughness:1;src:images/beam.jpg" id="H-Beam 1"></a-entity>
+    <a-entity geometry="width:50" position="20 13.5 5" rotation="0 90 0" material="repeat:2 1;roughness:1;src:images/beam.jpg" id="H-Beam 2"></a-entity>
     
     
     
     
 
     <!-- V Beams  -->
-    <a-entity static-body="" geometry="width:13.5" position="0 6.25 -19" rotation="0 0 90" material="roughness:1;src:images/beam.jpg"></a-entity>
-    <a-entity static-body="" geometry="width:13.5" position="0 6.25 29" rotation="0 0 90" material="roughness:1;src:images/beam.jpg"></a-entity>
-    <a-entity static-body="" geometry="width:13.5" position="20 6.25 -19" rotation="0 0 90" material="roughness:1;src:images/beam.jpg"></a-entity>
-    <a-entity static-body="" geometry="width:13.5" position="-20 6.25 29" rotation="0 0 90" material="roughness:1;src:images/beam.jpg"></a-entity>
+    <a-entity static-body="" geometry="width:13.5" position="0 6.25 -19" rotation="0 0 90" material="roughness:1;src:images/beam.jpg" id="V-Beam 1"></a-entity>
+    <a-entity static-body="" geometry="width:13.5" position="0 6.25 29" rotation="0 0 90" material="roughness:1;src:images/beam.jpg" id="V-Beam 2"></a-entity>
+    <a-entity static-body="" geometry="width:13.5" position="20 6.25 -19" rotation="0 0 90" material="roughness:1;src:images/beam.jpg" id="V-Beam 3"></a-entity>
+    <a-entity static-body="" geometry="width:13.5" position="-20 6.25 29" rotation="0 0 90" material="roughness:1;src:images/beam.jpg" id="V-Beam 4"></a-entity>
     
     
 
-    <a-entity static-body="" geometry="width:13.5" position="-20 6.25 -19" rotation="0 0 90" material="roughness:1;src:images/beam.jpg"></a-entity>
-    <a-entity static-body="" geometry="width:13.5" position="20 6.25 29" rotation="0 0 90" material="roughness:1;src:images/beam.jpg"></a-entity>
+    <a-entity static-body="" geometry="width:13.5" position="-20 6.25 -19" rotation="0 0 90" material="roughness:1;src:images/beam.jpg" id="V-Beam 5"></a-entity>
+    <a-entity static-body="" geometry="width:13.5" position="20 6.25 29" rotation="0 0 90" material="roughness:1;src:images/beam.jpg" id="V-Beam 6"></a-entity>
     
     
 
@@ -289,35 +289,22 @@
 
     <!-- Table -->
     <a-entity static-body="" geometry="depth:8;height:0.3;width:3" position="17.846 1.2 5" rotation="0 90 0" material="roughness:1;src:images/mount.jpg" id="Table 1">
-        <a-entity static-body="" geometry="depth:0.3;height:2.2;width:0.3" position="-1.2 -1 3.8" rotation="0 90 0" material="roughness:1;src:images/mount.jpg"></a-entity>
-        <a-entity static-body="" geometry="depth:0.3;height:2.2;width:0.3" position="1.2 -1 3.8" rotation="0 90 0" material="roughness:1;src:images/mount.jpg"></a-entity>
-        <a-entity static-body="" geometry="depth:0.3;height:2.2;width:0.3" position="1.2 -1 -3.8" rotation="0 90 0" material="roughness:1;src:images/mount.jpg"></a-entity>
-        <a-entity static-body="" geometry="depth:0.3;height:2.2;width:0.3" position="-1.2 -1 -3.8" rotation="0 90 0" material="roughness:1;src:images/mount.jpg"></a-entity>
+        <a-entity static-body="" geometry="depth:0.3;height:2.2;width:0.3" position="-1.2 -1 3.8" rotation="0 90 0" material="roughness:1;src:images/mount.jpg" id="Table Leg 1"></a-entity>
+        <a-entity static-body="" geometry="depth:0.3;height:2.2;width:0.3" position="1.2 -1 3.8" rotation="0 90 0" material="roughness:1;src:images/mount.jpg" id="Table Leg 2"></a-entity>
+        <a-entity static-body="" geometry="depth:0.3;height:2.2;width:0.3" position="1.2 -1 -3.8" rotation="0 90 0" material="roughness:1;src:images/mount.jpg" id="Table Leg 3"></a-entity>
+        <a-entity static-body="" geometry="depth:0.3;height:2.2;width:0.3" position="-1.2 -1 -3.8" rotation="0 90 0" material="roughness:1;src:images/mount.jpg" id="Table Leg 4"></a-entity>
 
         
-        <a-entity geometry="primitive:circle;radius:0.1" position="0.5 0.17 0.5" rotation="90 35 0" material="shader:flat;side:double;transparent:true;src:images/coin.png"></a-entity>
-        <a-entity geometry="primitive:circle;radius:0.1" position="1.3 0.17 0.6" rotation="270 90 0" material="shader:flat;side:double;transparent:true;src:images/coin.png"></a-entity>
-        <a-entity geometry="primitive:circle;radius:0.1" position="0.3 0.17 0.4" rotation="90 -40 0" material="shader:flat;side:double;transparent:true;src:images/coin.png"></a-entity>
-        <a-entity geometry="primitive:cylinder;height:0.42;openEnded:true;radius:0.15" position="0.9 0.4 1.2" material="repeat:2 1;side:double;src:images/cup.jpg"></a-entity>
+        <a-entity geometry="primitive:circle;radius:0.1" position="0.5 0.17 0.5" rotation="90 35 0" material="shader:flat;side:double;transparent:true;src:images/coin.png" id="Coin 3"></a-entity>
+        <a-entity geometry="primitive:circle;radius:0.1" position="1.3 0.17 0.6" rotation="270 90 0" material="shader:flat;side:double;transparent:true;src:images/coin.png" id="Coin 1"></a-entity>
+        <a-entity geometry="primitive:circle;radius:0.1" position="0.3 0.17 0.4" rotation="90 -40 0" material="shader:flat;side:double;transparent:true;src:images/coin.png" id="Coin 2"></a-entity>
+        <a-entity geometry="primitive:cylinder;height:0.42;openEnded:true;radius:0.15" position="0.9 0.4 1.2" material="repeat:2 1;side:double;src:images/cup.jpg" id="Can 1"></a-entity>
     </a-entity>
 
     <!-- Table -->
-    <a-entity static-body="" geometry="depth:8;height:0.3;width:3" position="-15.459 1.2 5" rotation="0 90 0" material="roughness:1;src:images/mount.jpg">
-        <a-entity static-body="" geometry="depth:0.3;height:2.2;width:0.3" position="-1.2 -1 3.8" rotation="0 90 0" material="roughness:1;src:images/mount.jpg"></a-entity>
-        <a-entity static-body="" geometry="depth:0.3;height:2.2;width:0.3" position="1.2 -1 3.8" rotation="0 90 0" material="roughness:1;src:images/mount.jpg"></a-entity>
-        <a-entity static-body="" geometry="depth:0.3;height:2.2;width:0.3" position="1.2 -1 -3.8" rotation="0 90 0" material="roughness:1;src:images/mount.jpg"></a-entity>
-        <a-entity static-body="" geometry="depth:0.3;height:2.2;width:0.3" position="-1.2 -1 -3.8" rotation="0 90 0" material="roughness:1;src:images/mount.jpg"></a-entity>
-
-        
-        <!-- Candles -->
-        
-
-        
-
-        
-    </a-entity>
+    
 </a-scene>
 
 
 
-<a href="blob:http://localhost:8000/a09cd5a5-3f8b-4219-94de-2c2e320ace0a" download="localhost-8000" style="display: none;"></a><a href="blob:http://localhost:8000/0046c7dc-ab73-46fe-beb0-e412bc2c168a" download="localhost-8000" style="display: none;"></a></body></html>
+<a href="blob:http://localhost:8000/a09cd5a5-3f8b-4219-94de-2c2e320ace0a" download="localhost-8000" style="display: none;"></a><a href="blob:http://localhost:8000/0046c7dc-ab73-46fe-beb0-e412bc2c168a" download="localhost-8000" style="display: none;"></a><a href="blob:http://localhost:8000/d66c2e60-5e69-4426-a4a8-ec5b14a8ccaf" download="localhost-8000" style="display: none;"></a><a href="blob:http://localhost:8000/b8983d74-19e9-4201-93bc-3d99a0e4b632" download="localhost-8000" style="display: none;"></a></body></html>
