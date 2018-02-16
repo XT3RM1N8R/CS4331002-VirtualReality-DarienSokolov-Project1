@@ -5,7 +5,7 @@
 </head>
 <body class="a-body ">
 
-<a-scene inspector="dev" class="fullscreen" keyboard-shortcuts="" screenshot="" vr-mode-ui="">
+<a-scene inspector="" class="fullscreen" keyboard-shortcuts="" screenshot="" vr-mode-ui="">
     <a-assets>
         <audio id="blip1" src="assets/horned_owl.wav"></audio>
         <a-asset-item id="drone" src="assets/busterDrone.gltf">
@@ -21,30 +21,30 @@
     <a-box color="tomato" position="45 0 6" depth="2" height="2" width="2" class="intersectable" material="" geometry="">
        <a-animation begin="click" attribute="position" from="45 0 6" to="45 0 -10" dur="3000"></a-animation>
     </a-box>
-    <a-box material="opacity:0;transparent:true;color:tomato" depth="2" height="2" width="2" sound="src:assets/horned_owl.wav;on:click" class="intersectable" position="55 1.5 6" geometry=""></a-box>
+    <a-box material="opacity:0;transparent:true;color:tomato" depth="2" height="2" width="2" sound="on:click;src:assets/horned_owl.wav" class="intersectable" position="55 1.5 6" geometry=""></a-box>
     <a-obj-model src="assets/AngryBirdsRedsMask.obj" mtl="assets/AngryBirdsRedsMask.mtl" position="55 1.5 6" material="" obj-model=""></a-obj-model>
     <a-entity collada-model="assets/stormtrooper.dae" rotation="90 0 0" position="60 0 6"></a-entity>
 
 
     <!-- Ceiling -->
-    <a-entity static-body="" geometry="depth:50;height:0.1;width:160" position="0 14 5" material="shader:flat;side:double;src:images/ceiling2.jpg;repeat:20 12"></a-entity>
+    <a-entity static-body="" geometry="depth:50;height:0.1;width:160" position="0 14 5" material="repeat:20 12;shader:flat;side:double;src:images/ceiling2.jpg" visible="false"></a-entity>
     <!-- Floor -->
-    <a-entity static-body="" geometry="depth:50;height:0.1;width:160" position="0 -0.5 5" material="shader:flat;side:double;src:images/floor.jpg;repeat:12 5"></a-entity>
+    <a-entity static-body="" geometry="depth:50;height:0.1;width:160" position="0 -0.5 5" material="repeat:12 5;shader:flat;side:double;src:images/floor.jpg" scale="0.375 1 1"></a-entity>
 
     <!-- Trim -->
-    <a-entity geometry="depth:0.6;width:160" position="0 13.5 -19.7" material="roughness:1;src:images/trim.jpg;repeat:32 1"></a-entity>
-    <a-entity geometry="depth:0.6;width:160" position="0 13.5 29.7" material="roughness:1;src:images/trim.jpg;repeat:32 1"></a-entity>
-    <a-entity geometry="depth:0.6;width:50" position="79.7 13.5 5" rotation="0 90 0" material="roughness:1;src:images/trim.jpg;repeat:9 1"></a-entity>
-    <a-entity geometry="depth:0.6;width:50" position="-79.7 13.5 5" rotation="0 90 0" material="roughness:1;src:images/trim.jpg;repeat:9 1"></a-entity>
+    <a-entity geometry="depth:0.6;width:160" position="0 13.5 -19.7" material="repeat:32 1;roughness:1;src:images/trim.jpg" scale="0.456 1 1"></a-entity>
+    <a-entity geometry="depth:0.6;width:160" position="0 13.5 29.7" material="repeat:32 1;roughness:1;src:images/trim.jpg" scale="0.4 1 1"></a-entity>
+    <a-entity geometry="depth:0.6;width:50" position="79.7 13.5 5" rotation="0 90 0" material="repeat:9 1;roughness:1;src:images/trim.jpg"></a-entity>
+    
 
     <!-- H Beams  -->
-    <a-entity geometry="width:50" position="0 13.5 5" rotation="0 90 0" material="roughness:1;src:images/beam.jpg;repeat:2 1"></a-entity>
-    <a-entity geometry="width:50" position="-20 13.5 5" rotation="0 90 0" material="roughness:1;src:images/beam.jpg;repeat:2 1"></a-entity>
-    <a-entity geometry="width:50" position="20 13.5 5" rotation="0 90 0" material="roughness:1;src:images/beam.jpg;repeat:2 1"></a-entity>
-    <a-entity geometry="width:50" position="-40 13.5 5" rotation="0 90 0" material="roughness:1;src:images/beam.jpg;repeat:2 1"></a-entity>
-    <a-entity geometry="width:50" position="40 13.5 5" rotation="0 90 0" material="roughness:1;src:images/beam.jpg;repeat:2 1"></a-entity>
-    <a-entity geometry="width:50" position="-60 13.5 5" rotation="0 90 0" material="roughness:1;src:images/beam.jpg;repeat:2 1"></a-entity>
-    <a-entity geometry="width:50" position="60 13.5 5" rotation="0 90 0" material="roughness:1;src:images/beam.jpg;repeat:2 1"></a-entity>
+    <a-entity geometry="width:50" position="0 13.5 5" rotation="0 90 0" material="repeat:2 1;roughness:1;src:images/beam.jpg"></a-entity>
+    <a-entity geometry="width:50" position="-20 13.5 5" rotation="0 90 0" material="repeat:2 1;roughness:1;src:images/beam.jpg"></a-entity>
+    <a-entity geometry="width:50" position="20 13.5 5" rotation="0 90 0" material="repeat:2 1;roughness:1;src:images/beam.jpg"></a-entity>
+    
+    <a-entity geometry="width:50" position="40 13.5 5" rotation="0 90 0" material="repeat:2 1;roughness:1;src:images/beam.jpg"></a-entity>
+    
+    <a-entity geometry="width:50" position="60 13.5 5" rotation="0 90 0" material="repeat:2 1;roughness:1;src:images/beam.jpg"></a-entity>
 
     <!-- V Beams  -->
     <a-entity static-body="" geometry="width:13.5" position="0 6.25 -19" rotation="0 0 90" material="roughness:1;src:images/beam.jpg"></a-entity>
@@ -52,82 +52,78 @@
     <a-entity static-body="" geometry="width:13.5" position="20 6.25 -19" rotation="0 0 90" material="roughness:1;src:images/beam.jpg"></a-entity>
     <a-entity static-body="" geometry="width:13.5" position="-20 6.25 29" rotation="0 0 90" material="roughness:1;src:images/beam.jpg"></a-entity>
     <a-entity static-body="" geometry="width:13.5" position="40 6.25 -19" rotation="0 0 90" material="roughness:1;src:images/beam.jpg"></a-entity>
-    <a-entity static-body="" geometry="width:13.5" position="-40 6.25 29" rotation="0 0 90" material="roughness:1;src:images/beam.jpg"></a-entity>
+    
 
     <a-entity static-body="" geometry="width:13.5" position="-20 6.25 -19" rotation="0 0 90" material="roughness:1;src:images/beam.jpg"></a-entity>
     <a-entity static-body="" geometry="width:13.5" position="20 6.25 29" rotation="0 0 90" material="roughness:1;src:images/beam.jpg"></a-entity>
-    <a-entity static-body="" geometry="width:13.5" position="-40 6.25 -19" rotation="0 0 90" material="roughness:1;src:images/beam.jpg"></a-entity>
+    
     <a-entity static-body="" geometry="width:13.5" position="40 6.25 29" rotation="0 0 90" material="roughness:1;src:images/beam.jpg"></a-entity>
 
-    <a-entity static-body="" geometry="width:13.5" position="-60 6.25 -19" rotation="0 0 90" material="roughness:1;src:images/beam.jpg"></a-entity>
+    
     <a-entity static-body="" geometry="width:13.5" position="60 6.25 29" rotation="0 0 90" material="roughness:1;src:images/beam.jpg"></a-entity>
-    <a-entity static-body="" geometry="width:13.5" position="-79 6.25 -19" rotation="0 0 90" material="roughness:1;src:images/beam.jpg"></a-entity>
+    
     <a-entity static-body="" geometry="width:13.5" position="79 6.25 29" rotation="0 0 90" material="roughness:1;src:images/beam.jpg"></a-entity>
 
     <a-entity static-body="" geometry="width:13.5" position="60 6.25 -19" rotation="0 0 90" material="roughness:1;src:images/beam.jpg"></a-entity>
-    <a-entity static-body="" geometry="width:13.5" position="-60 6.25 29" rotation="0 0 90" material="roughness:1;src:images/beam.jpg"></a-entity>
+    
     <a-entity static-body="" geometry="width:13.5" position="79 6.25 -19" rotation="0 0 90" material="roughness:1;src:images/beam.jpg"></a-entity>
-    <a-entity static-body="" geometry="width:13.5" position="-79 6.25 29" rotation="0 0 90" material="roughness:1;src:images/beam.jpg"></a-entity>
+    
 
     <!-- Walls  -->
-    <a-entity static-body="" geometry="height:14;width:50" position="-80 6.5 5" rotation="0 90 0" material="roughness:1;src:images/brick1.jpg;repeat:4 2"></a-entity>
-    <a-entity static-body="" geometry="height:14;width:50" position="80 6.5 5" rotation="0 90 0" material="roughness:1;src:images/brick1.jpg;repeat:4 2"></a-entity>
-    <a-entity static-body="" geometry="height:14;width:160" position="0 6.5 -20" material="roughness:1;src:images/brick1.jpg;repeat:12 2"></a-entity>
-    <a-entity static-body="" geometry="height:14;width:160" position="0 6.5 30" material="roughness:1;src:images/brick1.jpg;repeat:12 2"></a-entity>
+    <a-entity static-body="" geometry="height:14;width:50" position="-26.179 6.5 5" rotation="0 90 0" material="repeat:4 2;roughness:1;src:images/brick1.jpg"></a-entity>
+    <a-entity static-body="" geometry="height:14;width:50" position="25.67 6.5 5" rotation="0 90 0" material="repeat:4 2;roughness:1;src:images/brick1.jpg"></a-entity>
+    <a-entity static-body="" geometry="height:14;width:160" position="0 6.5 -20" material="repeat:12 2;roughness:1;src:images/brick1.jpg" scale="0.361 1 1"></a-entity>
+    <a-entity static-body="" geometry="height:14;width:160" position="0 6.5 30" material="repeat:12 2;roughness:1;src:images/brick1.jpg" scale="0.411 1 1"></a-entity>
 
     <!-- Columns -->
-    <a-entity static-body="" geometry="primitive:cylinder;radius:5;height:14;segmentsRadial:8" position="-30 6.5 5" material="src:images/brick3.jpg;repeat:2 2"></a-entity>
-    <a-entity static-body="" geometry="primitive:cylinder;radius:7;height:5;segmentsRadial:8" position="-30 14.6 5" material="src:images/brick3.jpg;repeat:2 1"></a-entity>
-    <a-entity static-body="" geometry="primitive:cylinder;radius:7;height:5;segmentsRadial:8" position="-30 -1 5" material="src:images/brick3.jpg;repeat:2 1"></a-entity>
+    
+    
+    
 
     
     
     
 
     <!-- Banners -->
-    <a-entity geometry="primitive:plane;height:7;width:1.5" position="-60 8.5 26" rotation="0 90 0" material="shader:flat;side:double;transparent:true;src:images/banner.png"><a-entity geometry="primitive:cylinder;radius:0.1;height:4" position="-1 3.5 0" rotation="0 0 90" material="src:images/torch2.jpg"></a-entity></a-entity>
-    <a-entity geometry="primitive:plane;height:7;width:1.5" position="-60.01 8.5 26" rotation="0 270 0" material="shader:flat;side:double;transparent:true;src:images/banner0.png"></a-entity>
+    
+    
 
-    <a-entity geometry="primitive:plane;height:7;width:1.5" position="-40 8.5 26" rotation="0 90 0" material="shader:flat;side:double;transparent:true;src:images/banner.png"><a-entity geometry="primitive:cylinder;radius:0.1;height:4" position="-0.9 3.5 0" rotation="0 0 90" material="src:images/torch2.jpg"></a-entity></a-entity>
-    <a-entity geometry="primitive:plane;height:7;width:1.5" position="-40.01 8.5 26" rotation="0 270 0" material="shader:flat;side:double;transparent:true;src:images/banner0.png"></a-entity>
+    
+    
 
-    <a-entity geometry="primitive:plane;height:7;width:1.5" position="-20 8.5 26" rotation="0 90 0" material="shader:flat;side:double;transparent:true;src:images/banner.png"><a-entity geometry="primitive:cylinder;radius:0.1;height:4" position="-0.9 3.5 0" rotation="0 0 90" material="src:images/torch2.jpg"></a-entity></a-entity>
-    <a-entity geometry="primitive:plane;height:7;width:1.5" position="-20.01 8.5 26" rotation="0 270 0" material="shader:flat;side:double;transparent:true;src:images/banner0.png"></a-entity>
+    
+    
 
-    <a-entity geometry="primitive:plane;height:7;width:1.5" position="0 8.5 26" rotation="0 90 0" material="shader:flat;side:double;transparent:true;src:images/banner.png"><a-entity geometry="primitive:cylinder;radius:0.1;height:4" position="-0.9 3.5 0" rotation="0 0 90" material="src:images/torch2.jpg"></a-entity></a-entity>
-    <a-entity geometry="primitive:plane;height:7;width:1.5" position="-0.01 8.5 26" rotation="0 270 0" material="shader:flat;side:double;transparent:true;src:images/banner0.png"></a-entity>
+    
+    
 
-    <a-entity geometry="primitive:plane;height:7;width:1.5" position="60 8.5 26" rotation="0 -90 0" material="shader:flat;side:double;transparent:true;src:images/banner.png"><a-entity geometry="primitive:cylinder;radius:0.1;height:4" position="0.9 3.5 0" rotation="0 0 90" material="src:images/torch2.jpg"></a-entity></a-entity>
-    <a-entity geometry="primitive:plane;height:7;width:1.5" position="60.01 8.5 26" rotation="0 -270 0" material="shader:flat;side:double;transparent:true;src:images/banner0.png"></a-entity>
+    
+    
 
-    <a-entity geometry="primitive:plane;height:7;width:1.5" position="40 8.5 26" rotation="0 -90 0" material="shader:flat;side:double;transparent:true;src:images/banner.png"><a-entity geometry="primitive:cylinder;radius:0.1;height:4" position="0.9 3.5 0" rotation="0 0 90" material="src:images/torch2.jpg"></a-entity></a-entity>
-    <a-entity geometry="primitive:plane;height:7;width:1.5" position="40.01 8.5 26" rotation="0 -270 0" material="shader:flat;side:double;transparent:true;src:images/banner0.png"></a-entity>
+    
+    
 
-    <a-entity geometry="primitive:plane;height:7;width:1.5" position="20 8.5 26" rotation="0 -90 0" material="shader:flat;side:double;transparent:true;src:images/banner.png"><a-entity geometry="primitive:cylinder;radius:0.1;height:4" position="0.9 3.5 0" rotation="0 0 90" material="src:images/torch2.jpg"></a-entity></a-entity>
-    <a-entity geometry="primitive:plane;height:7;width:1.5" position="20.01 8.5 26" rotation="0 -270 0" material="shader:flat;side:double;transparent:true;src:images/banner0.png"></a-entity>
+    
+    
     <!-- -->
-    <a-entity geometry="primitive:plane;height:7;width:1.5" position="60 8.5 -16" rotation="0 -90 0" material="shader:flat;side:double;transparent:true;src:images/banner.png"><a-entity geometry="primitive:cylinder;radius:0.1;height:4" position="-1 3.5 0" rotation="0 0 90" material="src:images/torch2.jpg"></a-entity></a-entity>
-    <a-entity geometry="primitive:plane;height:7;width:1.5" position="60.01 8.5 -16" rotation="0 270 0" material="shader:flat;side:double;transparent:true;src:images/banner0.png"></a-entity>
+    
+    
 
-    <a-entity geometry="primitive:plane;height:7;width:1.5" position="40 8.5 -16" rotation="0 -90 0" material="shader:flat;side:double;transparent:true;src:images/banner.png"><a-entity geometry="primitive:cylinder;radius:0.1;height:4" position="-1 3.5 0" rotation="0 0 90" material="src:images/torch2.jpg"></a-entity></a-entity>
-    <a-entity geometry="primitive:plane;height:7;width:1.5" position="40.01 8.5 -16" rotation="0 270 0" material="shader:flat;side:double;transparent:true;src:images/banner0.png"></a-entity>
+    
+    
 
-    <a-entity geometry="primitive:plane;height:7;width:1.5" position="20 8.5 -16" rotation="0 -90 0" material="shader:flat;side:double;transparent:true;src:images/banner.png"><a-entity geometry="primitive:cylinder;radius:0.1;height:4" position="-1 3.5 0" rotation="0 0 90" material="src:images/torch2.jpg"></a-entity></a-entity>
-    <a-entity geometry="primitive:plane;height:7;width:1.5" position="20.01 8.5 -16" rotation="0 270 0" material="shader:flat;side:double;transparent:true;src:images/banner0.png"></a-entity>
+    
+    
 
-    <a-entity geometry="primitive:plane;height:7;width:1.5" position="0 8.5 -16" rotation="0 -90 0" material="shader:flat;side:double;transparent:true;src:images/banner.png"><a-entity geometry="primitive:cylinder;radius:0.1;height:4" position="-1 3.5 0" rotation="0 0 90" material="src:images/torch2.jpg"></a-entity></a-entity>
-    <a-entity geometry="primitive:plane;height:7;width:1.5" position="0.01 8.5 -16" rotation="0 270 0" material="shader:flat;side:double;transparent:true;src:images/banner0.png"></a-entity>
+    
+    
 
-    <a-entity geometry="primitive:plane;height:7;width:1.5" position="-60 8.5 -16" rotation="0 -90 0" material="shader:flat;side:double;transparent:true;src:images/banner.png"><a-entity geometry="primitive:cylinder;radius:0.1;height:4" position="-1 3.5 0" rotation="0 0 90" material="src:images/torch2.jpg"></a-entity></a-entity>
-    <a-entity geometry="primitive:plane;height:7;width:1.5" position="-60.01 8.5 -16" rotation="0 270 0" material="shader:flat;side:double;transparent:true;src:images/banner0.png"></a-entity>
+    
+    
 
-    <a-entity geometry="primitive:plane;height:7;width:1.5" position="-40 8.5 -16" rotation="0 -90 0" material="shader:flat;side:double;transparent:true;src:images/banner.png"><a-entity geometry="primitive:cylinder;radius:0.1;height:4" position="-1 3.5 0" rotation="0 0 90" material="src:images/torch2.jpg"></a-entity></a-entity>
-    <a-entity geometry="primitive:plane;height:7;width:1.5" position="-40.01 8.5 -16" rotation="0 270 0" material="shader:flat;side:double;transparent:true;src:images/banner0.png"></a-entity>
+    
+    
 
-    <a-entity geometry="primitive:plane;height:7;width:1.5" position="-20 8.5 -16" rotation="0 -90 0" material="shader:flat;side:double;transparent:true;src:images/banner.png"><a-entity geometry="primitive:cylinder;radius:0.1;height:4" position="-1 3.5 0" rotation="0 0 90" material="src:images/torch2.jpg"></a-entity></a-entity>
-    <a-entity geometry="primitive:plane;height:7;width:1.5" position="-20.01 8.5 -16" rotation="0 270 0" material="shader:flat;side:double;transparent:true;src:images/banner0.png"></a-entity>
-
-    <!-- Torch -->
     
     
 
@@ -137,15 +133,11 @@
 
     <!-- Torch -->
     
-    <a-entity geometry="primitive:sphere;radius:0.6" position="-36.6 6.2 5" material="color:#222">
-        <a-entity geometry="primitive:cylinder;radius:0.6;height:0.5" position="0 0.3 0" material="color:#222"></a-entity>
-        <a-entity geometry="primitive:plane" position="0 0.9240716666666687 0" material="shader:flat;side:double;transparent:true;src:images/fire.png">
-            <a-animation attribute="position" to="0 0.95 0" easing="linear" repeat="indefinite" dur="450"></a-animation>
-        </a-entity>
-        <a-entity geometry="primitive:plane" position="0 0.9067814999999945 0" rotation="0 90 0" material="shader:flat;side:double;transparent:true;src:images/fire.png">
-            <a-animation attribute="position" to="0 0.95 0" easing="linear" repeat="indefinite" dur="500"></a-animation>
-        </a-entity>
-    </a-entity>
+    
+
+    <!-- Torch -->
+    
+    
 
     <!-- Torch -->
     
@@ -171,8 +163,8 @@
     
     
 
-    <a-entity geometry="primitive:plane;height:8.8;width:6.2" position="34.5 4.5 -18.98" material="shader:flat;transparent:true;src:images/Key-Remote-HD.png"></a-entity>
-    <a-entity geometry="height:11;width:8" position="34.5 4.2 -19.5" material="roughness:1;src:images/mount.jpg;repeat:1 2"></a-entity>
+    
+    
 
     
     
@@ -190,7 +182,7 @@
     
 
     <a-entity geometry="primitive:plane;height:8.8;width:6.2" position="65.5 4.5 -18.98" material="shader:flat;transparent:true;src:images/Smoke-Detector.png"></a-entity>
-    <a-entity geometry="height:11;width:8" position="65.5 4.2 -19.5" material="roughness:1;src:images/mount.jpg;repeat:1 2"></a-entity>
+    <a-entity geometry="height:11;width:8" position="65.5 4.2 -19.5" material="repeat:1 2;roughness:1;src:images/mount.jpg"></a-entity>
 
     
     
@@ -269,7 +261,7 @@
     <!-- Welcome -->
     <a-entity geometry="primitive:plane;height:6.9;width:10" position="0 9.2 -1" material="shader:flat;side:double;transparent:true;src:images/welcome.png">
         <a-entity geometry="primitive:plane;height:6.9;width:10" position="0 0 -0.01" rotation="0 180 0" material="shader:flat;side:double;transparent:true;src:images/welcome-back.png"></a-entity>
-        <a-entity geometry="primitive:cylinder;radius:0.2;height:11" position="0 3.5 0" rotation="90 90 0" material="src:images/torch2.jpg"></a-entity>
+        <a-entity geometry="primitive:cylinder;height:11;radius:0.2" position="0 3.5 0" rotation="90 90 0" material="src:images/torch2.jpg"></a-entity>
     </a-entity>
 
     <!-- Chair -->
@@ -300,11 +292,11 @@
         <a-entity static-body="" geometry="depth:0.3;height:2.2;width:0.3" position="1.2 -1 -3.8" rotation="0 90 0" material="roughness:1;src:images/mount.jpg"></a-entity>
         <a-entity static-body="" geometry="depth:0.3;height:2.2;width:0.3" position="-1.2 -1 -3.8" rotation="0 90 0" material="roughness:1;src:images/mount.jpg"></a-entity>
 
-        <a-entity geometry="primitive:plane;height:0.8;width:0.4" position="0.5 0.55 -1" rotation="0 90 0" material="shader:flat;side:double;transparent:true;src:images/bug-finder-product.png"></a-entity>
+        
         <a-entity geometry="primitive:circle;radius:0.1" position="0.5 0.17 0.5" rotation="90 35 0" material="shader:flat;side:double;transparent:true;src:images/coin.png"></a-entity>
         <a-entity geometry="primitive:circle;radius:0.1" position="1.3 0.17 0.6" rotation="270 90 0" material="shader:flat;side:double;transparent:true;src:images/coin.png"></a-entity>
         <a-entity geometry="primitive:circle;radius:0.1" position="0.3 0.17 0.4" rotation="90 -40 0" material="shader:flat;side:double;transparent:true;src:images/coin.png"></a-entity>
-        <a-entity geometry="primitive:cylinder;radius:0.15;height:0.42;openEnded:true" position="0.9 0.4 1.2" material="side:double;src:images/cup.jpg;repeat:2 1"></a-entity>
+        <a-entity geometry="primitive:cylinder;height:0.42;openEnded:true;radius:0.15" position="0.9 0.4 1.2" material="repeat:2 1;side:double;src:images/cup.jpg"></a-entity>
     </a-entity>
 
     <!-- Table -->
@@ -318,23 +310,9 @@
         <!-- Candles -->
         
 
-        <a-entity geometry="primitive:cylinder;radius:0.09;height:0.42" position="0 0.47 0" material="side:double;src:images/candle.jpg;repeat:2 1">
-            <a-entity geometry="primitive:plane;height:0.2;width:0.1" position="0 0.34917920000001784 0" material="shader:flat;side:double;transparent:true;src:images/fire.png">
-                <a-animation attribute="position" to="0 0.35 0" easing="linear" repeat="indefinite" dur="375"></a-animation>
-            </a-entity>
-            <a-entity geometry="primitive:plane;height:0.2;width:0.1" position="0 0.3273369411764776 0" rotation="0 90 0" material="shader:flat;side:double;transparent:true;src:images/fire.png">
-                <a-animation attribute="position" to="0 0.35 0" easing="linear" repeat="indefinite" dur="425"></a-animation>
-            </a-entity>
-        </a-entity>
+        
 
-        <a-entity geometry="primitive:cylinder;radius:0.09;height:0.42" position="0 0.47 0.5" rotation="0 200 0" material="side:double;src:images/candle.jpg;repeat:2 1">
-            <a-entity geometry="primitive:plane;height:0.2;width:0.1" position="0 0.32842050000000744 0" material="shader:flat;side:double;transparent:true;src:images/fire.png">
-                <a-animation attribute="position" to="0 0.35 0" easing="linear" repeat="indefinite" dur="400"></a-animation>
-            </a-entity>
-            <a-entity geometry="primitive:plane;height:0.2;width:0.1" position="0 0.3154251999999955 0" rotation="0 90 0" material="shader:flat;side:double;transparent:true;src:images/fire.png">
-                <a-animation attribute="position" to="0 0.35 0" easing="linear" repeat="indefinite" dur="500"></a-animation>
-            </a-entity>
-        </a-entity>
+        
     </a-entity>
 </a-scene>
 
