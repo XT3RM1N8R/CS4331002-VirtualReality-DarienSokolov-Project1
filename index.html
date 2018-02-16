@@ -1,18 +1,17 @@
 <html xmlns="http://www.w3.org/1999/xhtml"><head>
     <script src="libs/aframe.min.js"></script>
-
-    <script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/v1.14.0/dist/aframe-extras.min.js"></script>
+    <!--script src=â€ťlibs/aframe-extras.loaders.min.js"></script-->
+    <script src="//cdn.rawgit.com/donmccurdy/aframe-extras/v3.13.1/dist/aframe-extras.min.js"></script>
 </head>
 <body class="a-body ">
 
 <a-scene inspector="" class="fullscreen" keyboard-shortcuts="" screenshot="" vr-mode-ui="" id="Scene">
     <a-assets>
         <audio id="blip1" src="assets/horned_owl.wav"></audio>
-        <a-asset-item id="drone" src="assets/busterDrone.gltf">
-        <a-asset-item id="creeper_head" src="assets/Assets/Models/creeper_face.obj">
+        <a-asset-item id="creeper_coin" src="assets/Models/creeper_coin/creeper_coin.glb">
         <img id="creeper_image" src="images/c.jpg">
         <audio id="test_audio" src="assets/sound/Deep Breaths (Ableton).wav">
-    </audio></a-asset-item></a-asset-item></a-assets>
+    </audio></a-asset-item></a-assets>
     <a-sky color="#ECECEC" material="" geometry=""></a-sky>
     <!-- a-entity position="54 1.5 12">
         <a-camera universal-controls>
@@ -20,20 +19,18 @@
                               radiusInner: 0.01; segmentsTheta: 32" material="color: #283644; shader: flat" position="0 0 -0.75"></a-entity>
         </a-camera>
     </a-entity -->
-    <a-gltf-model src="#drone" position="0 5 0" animation-mixer="" gltf-model="assets/busterDrone.gltf" id="Buster Drone"></a-gltf-model>
     <a-box color="tomato" position="45 0 -10" depth="2" height="2" width="2" class="intersectable" material="" geometry="" id="Box 1">
        <a-animation begin="click" attribute="position" from="45 0 6" to="45 0 -10" dur="3000"></a-animation>
     </a-box>
     <a-obj-model src="assets/AngryBirdsRedsMask.obj" mtl="assets/AngryBirdsRedsMask.mtl" position="18.011 1.5 6" material="" obj-model="" id="Angry Bird Red">
             <a-box material="opacity:0;transparent:true;color:tomato" depth="2" height="2" width="2" sound="on:click;src:assets/horned_owl.wav" class="intersectable" position="0 0.71 0" geometry="" id="Bird Sound"></a-box>
     </a-obj-model>
-    <a-entity collada-model="assets/stormtrooper.dae" rotation="90 0 0" position="8.993 0 6" id="Stormtrooper"></a-entity>
 
 
     <!-- Ceiling -->
-    <a-entity static-body="" geometry="depth:50;height:0.1;width:160" position="0 14 5" material="repeat:20 12;shader:flat;side:double;src:images/ceiling2.jpg" visible="false" id="Ceiling"></a-entity>
+    <a-entity static-body="sphereRadius:NaN" geometry="depth:50;height:0.1;width:160" position="0 14 5" material="repeat:20 12;shader:flat;side:double;src:images/ceiling2.jpg" visible="false" id="Ceiling"></a-entity>
     <!-- Floor -->
-    <a-entity static-body="" geometry="depth:50;height:0.1;width:160" position="0 -0.5 5" material="repeat:12 5;shader:flat;side:double;src:images/floor.jpg" scale="0.375 1 1" id="Floor"></a-entity>
+    <a-entity static-body="sphereRadius:NaN" geometry="depth:50;height:0.1;width:160" position="0 -0.5 5" material="repeat:12 5;shader:flat;side:double;src:images/floor.jpg" scale="0.375 1 1" id="Floor"></a-entity>
 
     <!-- Trim -->
     <a-entity geometry="depth:0.6;width:160" position="0 13.5 -19.7" material="repeat:32 1;roughness:1;src:images/trim.jpg" scale="0.456 1 1" id="North Trim"></a-entity>
@@ -51,15 +48,15 @@
     
 
     <!-- V Beams  -->
-    <a-entity static-body="" geometry="width:13.5" position="0 6.25 -19" rotation="0 0 90" material="roughness:1;src:images/beam.jpg" id="V-Beam 1"></a-entity>
-    <a-entity static-body="" geometry="width:13.5" position="0 6.25 29" rotation="0 0 90" material="roughness:1;src:images/beam.jpg" id="V-Beam 2"></a-entity>
-    <a-entity static-body="" geometry="width:13.5" position="20 6.25 -19" rotation="0 0 90" material="roughness:1;src:images/beam.jpg" id="V-Beam 3"></a-entity>
-    <a-entity static-body="" geometry="width:13.5" position="-20 6.25 29" rotation="0 0 90" material="roughness:1;src:images/beam.jpg" id="V-Beam 4"></a-entity>
+    <a-entity static-body="sphereRadius:NaN" geometry="width:13.5" position="0 6.25 -19" rotation="0 0 90" material="roughness:1;src:images/beam.jpg" id="V-Beam 1"></a-entity>
+    <a-entity static-body="sphereRadius:NaN" geometry="width:13.5" position="0 6.25 29" rotation="0 0 90" material="roughness:1;src:images/beam.jpg" id="V-Beam 2"></a-entity>
+    <a-entity static-body="sphereRadius:NaN" geometry="width:13.5" position="20 6.25 -19" rotation="0 0 90" material="roughness:1;src:images/beam.jpg" id="V-Beam 3"></a-entity>
+    <a-entity static-body="sphereRadius:NaN" geometry="width:13.5" position="-20 6.25 29" rotation="0 0 90" material="roughness:1;src:images/beam.jpg" id="V-Beam 4"></a-entity>
     
     
 
-    <a-entity static-body="" geometry="width:13.5" position="-20 6.25 -19" rotation="0 0 90" material="roughness:1;src:images/beam.jpg" id="V-Beam 5"></a-entity>
-    <a-entity static-body="" geometry="width:13.5" position="20 6.25 29" rotation="0 0 90" material="roughness:1;src:images/beam.jpg" id="V-Beam 6"></a-entity>
+    <a-entity static-body="sphereRadius:NaN" geometry="width:13.5" position="-20 6.25 -19" rotation="0 0 90" material="roughness:1;src:images/beam.jpg" id="V-Beam 5"></a-entity>
+    <a-entity static-body="sphereRadius:NaN" geometry="width:13.5" position="20 6.25 29" rotation="0 0 90" material="roughness:1;src:images/beam.jpg" id="V-Beam 6"></a-entity>
     
     
 
@@ -74,10 +71,10 @@
     
 
     <!-- Walls  -->
-    <a-entity static-body="" geometry="height:14;width:50" position="-26.179 6.5 5" rotation="0 90 0" material="repeat:4 2;roughness:1;src:images/brick1.jpg" id="West Wall" mixin="null"></a-entity>
-    <a-entity static-body="" geometry="height:14;width:50" position="25.67 6.5 5" rotation="0 90 0" material="repeat:4 2;roughness:1;src:images/brick1.jpg" id="East Wall"></a-entity>
-    <a-entity static-body="" geometry="height:14;width:160" position="0 6.5 -20" material="repeat:12 2;roughness:1;src:images/brick1.jpg" scale="0.361 1 1" id="North Wall" cursor="" raycaster=""></a-entity>
-    <a-entity static-body="" geometry="height:14;width:160" position="0 6.5 30" material="repeat:12 2;roughness:1;src:images/brick1.jpg" scale="0.411 1 1" id="South Wall"></a-entity>
+    <a-entity static-body="sphereRadius:NaN" geometry="height:14;width:50" position="-26.179 6.5 5" rotation="0 90 0" material="repeat:4 2;roughness:1;src:images/brick1.jpg" id="West Wall" mixin="null"></a-entity>
+    <a-entity static-body="sphereRadius:NaN" geometry="height:14;width:50" position="25.67 6.5 5" rotation="0 90 0" material="repeat:4 2;roughness:1;src:images/brick1.jpg" id="East Wall"></a-entity>
+    <a-entity static-body="sphereRadius:NaN" geometry="height:14;width:160" position="0 6.5 -20" material="repeat:12 2;roughness:1;src:images/brick1.jpg" scale="0.361 1 1" id="North Wall" cursor="" raycaster=""></a-entity>
+    <a-entity static-body="sphereRadius:NaN" geometry="height:14;width:160" position="0 6.5 30" material="repeat:12 2;roughness:1;src:images/brick1.jpg" scale="0.411 1 1" id="South Wall"></a-entity>
 
     <!-- Columns -->
     
@@ -292,11 +289,11 @@
     </a-entity>
 
     <!-- Table -->
-    <a-entity static-body="" geometry="depth:8;height:0.3;width:3" position="17.846 1.2 5" rotation="0 90 0" material="roughness:1;src:images/mount.jpg" id="Table 1">
-        <a-entity static-body="" geometry="depth:0.3;height:2.2;width:0.3" position="-1.2 -1 3.8" rotation="0 90 0" material="roughness:1;src:images/mount.jpg" id="Table Leg 1"></a-entity>
-        <a-entity static-body="" geometry="depth:0.3;height:2.2;width:0.3" position="1.2 -1 3.8" rotation="0 90 0" material="roughness:1;src:images/mount.jpg" id="Table Leg 2"></a-entity>
-        <a-entity static-body="" geometry="depth:0.3;height:2.2;width:0.3" position="1.2 -1 -3.8" rotation="0 90 0" material="roughness:1;src:images/mount.jpg" id="Table Leg 3"></a-entity>
-        <a-entity static-body="" geometry="depth:0.3;height:2.2;width:0.3" position="-1.2 -1 -3.8" rotation="0 90 0" material="roughness:1;src:images/mount.jpg" id="Table Leg 4"></a-entity>
+    <a-entity static-body="sphereRadius:NaN" geometry="depth:8;height:0.3;width:3" position="17.846 1.2 5" rotation="0 90 0" material="roughness:1;src:images/mount.jpg" id="Table 1">
+        <a-entity static-body="sphereRadius:NaN" geometry="depth:0.3;height:2.2;width:0.3" position="-1.2 -1 3.8" rotation="0 90 0" material="roughness:1;src:images/mount.jpg" id="Table Leg 1"></a-entity>
+        <a-entity static-body="sphereRadius:NaN" geometry="depth:0.3;height:2.2;width:0.3" position="1.2 -1 3.8" rotation="0 90 0" material="roughness:1;src:images/mount.jpg" id="Table Leg 2"></a-entity>
+        <a-entity static-body="sphereRadius:NaN" geometry="depth:0.3;height:2.2;width:0.3" position="1.2 -1 -3.8" rotation="0 90 0" material="roughness:1;src:images/mount.jpg" id="Table Leg 3"></a-entity>
+        <a-entity static-body="sphereRadius:NaN" geometry="depth:0.3;height:2.2;width:0.3" position="-1.2 -1 -3.8" rotation="0 90 0" material="roughness:1;src:images/mount.jpg" id="Table Leg 4"></a-entity>
 
         
         <a-entity geometry="primitive:circle;radius:0.1" position="0.5 0.17 0.5" rotation="90 35 0" material="shader:flat;side:double;transparent:true;src:images/coin.png" id="Coin 3"></a-entity>
@@ -307,7 +304,11 @@
 
     <!-- Table -->
     
-<a-entity position="8.098 4.706 12.542" obj-model="obj:assets/Assets/Models/creeper_face.obj" sound__test="on:click;src:assets/sound/Deep Breaths (Ableton).wav" id="Creeper Coin" material=""></a-entity><a-entity position="12.211 3.2 12.504" rotation="32.544 87.319 0" id="Camera" camera="active:false;userHeight:1.6" raycaster="" cursor="" look-controls="" wasd-controls=""></a-entity><a-entity position="0 4.926 14.594" light="shadowCameraVisible:true;angle:90" id="Light 1"></a-entity><a-entity position="0 4.926 -7.13" rotation="0 180.02333923010465 0" light="angle:90;shadowCameraVisible:true" id="Light 2"></a-entity></a-scene>
+    
+    <a-entity position="13.618999929715843 6.4 17.59167352788942" rotation="-2.0626480624709425 38.731946950843586 0" id="Camera" camera="userHeight:1.6" raycaster="" cursor="" look-controls="" wasd-controls="" data-aframe-inspector-original-camera=""></a-entity>
+    <a-entity position="0 4.926 14.594" light="angle:90;shadowCameraVisible:true" id="Light 1"></a-entity>
+    <a-entity position="0 4.926 -7.13" rotation="0 180.02333923010465 0" light="angle:90;shadowCameraVisible:true" id="Light 2"></a-entity>
+    <a-entity position="11.301 6.688 15.388" id="Creeper Coin" animation-mixer="" gltf-model="assets/Models/creeper_coin/creeper_coin.glb"></a-entity></a-scene>
 
 
 
