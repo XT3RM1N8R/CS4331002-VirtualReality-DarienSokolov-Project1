@@ -84,61 +84,59 @@
     <a-sky color="#ECECEC" material="" geometry=""></a-sky>
  
     <!-- Camera -->
-    <a-entity position="4.086543742583339 4 6.142609722563787" camera="" universal-controls="" id="Camera" rotation="-9.39650784014549 -3.437746770784938 0" velocity="1.3616532598614117e-65 0 3.083293649708421e-65" gamepad-controls="" keyboard-controls="" touch-controls="" hmd-controls="" mouse-controls="" data-aframe-inspector-original-camera="">
+    <a-entity position="-0.0005001455738689208 4 -2.7658793912070476" camera="" universal-controls="" id="Camera" rotation="7.104676659622208 -756.7626558087902 0" velocity="1.1499807810216058e-22 0 7.915725309506723e-23" gamepad-controls="" keyboard-controls="" touch-controls="" hmd-controls="" mouse-controls="" data-aframe-inspector-original-camera="">
             <a-entity raycaster="far:150;objects:.intersectable" cursor="" geometry="primitive:ring;radiusInner:0.01;radiusOuter:0.015" material="shader:flat;color:#283644" position="0 0 -0.75" data-aframe-inspector-original-camera=""></a-entity>  
     </a-entity>
     
-    <a-box color="tomato" position="45 0 -10" depth="2" height="2" width="2" class="intersectable" material="" geometry="" id="Box 1">
-       <a-animation begin="click" attribute="position" from="45 0 6" to="45 0 -10" dur="3000"></a-animation>
-    </a-box>
     
-<a-sphere position="0.195 1.25 -5" radius="1.25" color="#EF2D5E" gui="name:Pink Sphere;properties:position.x, scale.y, scale.x, scale;position:5.04 1 4;inheritPosition:true" material="" geometry=""></a-sphere>
+    
+
     
     <!-- Ceiling -->
     <a-entity static-body="sphereRadius:NaN" geometry="depth:50;height:0.1;width:160" position="0 14 5" material="repeat:20 12;shader:flat;side:double;src:images/ceiling2.jpg" visible="false" id="Ceiling"></a-entity>
     <!-- Floor -->
-    <a-entity static-body="sphereRadius:NaN" geometry="depth:50;height:0.1;width:160" position="0 -0.5 5" material="repeat:12 5;shader:flat;side:double;src:images/floor.jpg" scale="0.375 1 1" id="Floor"></a-entity>
+    <a-entity static-body="sphereRadius:NaN" geometry="depth:50;height:0.1;width:160" position="0 -0.5 -1.011" material="repeat:12 5;shader:flat;side:double;src:images/floor.jpg" scale="0.219 1 0.811" id="Floor"></a-entity>
 
     <!-- Trim -->
-    <a-entity geometry="depth:0.6;width:160" position="0 13.5 -19.7" material="repeat:32 1;roughness:1;src:images/trim.jpg" scale="0.456 1 1" id="North Trim"></a-entity>
-    <a-entity geometry="depth:0.6;width:160" position="0 13.5 29.7" material="repeat:32 1;roughness:1;src:images/trim.jpg" scale="0.4 1 1" id="South Trim"></a-entity>
+    
+    
     
 
     <!-- V Beams  -->
-    <a-entity static-body="sphereRadius:NaN" geometry="width:13.5" position="0 6.25 -19" rotation="0 0 90" material="roughness:1;src:images/beam.jpg" id="V-Beam 1"></a-entity>
-    <a-entity static-body="sphereRadius:NaN" geometry="width:13.5" position="0 6.25 29" rotation="0 0 90" material="roughness:1;src:images/beam.jpg" id="V-Beam 2"></a-entity>
-    <a-entity static-body="sphereRadius:NaN" geometry="width:13.5" position="20 6.25 -19" rotation="0 0 90" material="roughness:1;src:images/beam.jpg" id="V-Beam 3"></a-entity>
-    <a-entity static-body="sphereRadius:NaN" geometry="width:13.5" position="-20 6.25 29" rotation="0 0 90" material="roughness:1;src:images/beam.jpg" id="V-Beam 4"></a-entity>
+    
+    
+    
+    
     
     
 
-    <a-entity static-body="sphereRadius:NaN" geometry="width:13.5" position="-20 6.25 -19" rotation="0 0 90" material="roughness:1;src:images/beam.jpg" id="V-Beam 5"></a-entity>
-    <a-entity static-body="sphereRadius:NaN" geometry="width:13.5" position="20 6.25 29" rotation="0 0 90" material="roughness:1;src:images/beam.jpg" id="V-Beam 6"></a-entity>
+    
+    
     
 
     <!-- Walls  -->
-    <a-entity static-body="sphereRadius:NaN" geometry="height:14;width:50" position="-26.179 6.5 5" rotation="0 90 0" material="repeat:4 2;roughness:1;src:images/brick1.jpg" id="West Wall" mixin="null"></a-entity>
-    <a-entity static-body="sphereRadius:NaN" geometry="height:14;width:50" position="25.67 6.5 5" rotation="0 90 0" material="repeat:4 2;roughness:1;src:images/brick1.jpg" id="East Wall"></a-entity>
-    <a-entity static-body="sphereRadius:NaN" geometry="height:14;width:160" position="0 6.5 -20" material="repeat:12 2;roughness:1;src:images/brick1.jpg" scale="0.361 1 1" id="North Wall" cursor="" raycaster=""></a-entity>
-    <a-entity static-body="sphereRadius:NaN" geometry="height:14;width:160" position="0 6.5 30" material="repeat:12 2;roughness:1;src:images/brick1.jpg" scale="0.411 1 1" id="South Wall"></a-entity>
+    <a-entity static-body="sphereRadius:NaN" geometry="height:14;width:50" position="-15.722 6.5 -2.332" rotation="0 90 0" material="repeat:4 2;roughness:1;src:images/brick1.jpg" id="West Wall" mixin="null" scale="0.735 1 1"></a-entity>
+    <a-entity static-body="sphereRadius:NaN" geometry="height:14;width:50" position="14.671 6.5 -0.96" rotation="0 90 0" material="repeat:4 2;roughness:1;src:images/brick1.jpg" id="East Wall" scale="0.771 1 1"></a-entity>
+    <a-entity static-body="sphereRadius:NaN" geometry="height:14;width:160" position="0 6.5 -15.123" material="repeat:12 2;roughness:1;src:images/brick1.jpg" scale="0.24 1 1" id="North Wall" cursor="" raycaster=""></a-entity>
+    <a-entity static-body="sphereRadius:NaN" geometry="height:14;width:160" position="0 6.5 14.996" material="repeat:12 2;roughness:1;src:images/brick1.jpg" scale="0.234 1 1" id="South Wall"></a-entity>
 
     
-    <a-entity geometry="height:11;width:8" position="-10.216 6.141 -19.5" material="repeat:1 2;roughness:1;src:images/mount.jpg" id="Poster Frame">
+    <a-entity geometry="height:11;width:8" position="2.415 4.585 -14.442" material="repeat:1 2;roughness:1;src:images/mount.jpg" id="Poster Frame" scale="0.5 0.5 0.5">
         <a-entity geometry="primitive:plane;height:8.8;width:6.2" position="0 0 0.542" material="shader:flat;transparent:true;src:images/Smoke-Detector.png" id="Poster"></a-entity>
     </a-entity>
 
    
     <a-entity position="0 4.926 14.594" light="angle:90;type:ambient" id="Light 1"></a-entity>
     
-    <a-entity position="11.301 6.688 15.388" id="Creeper Coin" rotation="0 104.98409999999916 0" obj-model="obj:assets/Models/creeper_coin/creeper_coin.obj" material="src:images/c.jpg">
+    <a-entity position="9.626 3.425 9.777" id="Creeper Coin" rotation="0 99.17639999999665 0" obj-model="obj:assets/Models/creeper_coin/creeper_coin.obj" material="src:images/c.jpg">
         <a-animation attribute="rotation" dur="2000" easing="linear" from="0 0 0" to="0 360 0" repeat="indefinite"></a-animation>
     </a-entity>
 
-<a-entity position="8.821 1.185 0.577" collada-model="assets/Models/Table.dae" id="Table 1"></a-entity>
-<a-entity position="9.244 4.26 -9.794" rotation="0 -90.01166961505233 0" collada-model="assets/Models/Monitor.dae" id="Monitor"></a-entity>
+<a-entity position="12.349 0.533 -6.417" collada-model="assets/Models/Table.dae" id="Table 1" scale="1.22 1 1.81"></a-entity>
+<a-entity position="12.899 3.529 -7.741" rotation="0 180 0" collada-model="assets/Models/Monitor.dae" id="Monitor"></a-entity>
 
-<a-entity position="4.482 6.19 5.079" geometry="" id="testffff" gui="name:guitest;properties:position.x, position.y, visible;inheritPosition:true"></a-entity></a-scene>
+</a-scene>
 
 
 
-<a href="blob:http://localhost:8000/a09cd5a5-3f8b-4219-94de-2c2e320ace0a" download="localhost-8000" style="display: none;"></a><a href="blob:http://localhost:8000/0046c7dc-ab73-46fe-beb0-e412bc2c168a" download="localhost-8000" style="display: none;"></a><a href="blob:http://localhost:8000/d66c2e60-5e69-4426-a4a8-ec5b14a8ccaf" download="localhost-8000" style="display: none;"></a><a href="blob:http://localhost:8000/b8983d74-19e9-4201-93bc-3d99a0e4b632" download="localhost-8000" style="display: none;"></a></body></html>
+<a href="blob:http://localhost:8000/a09cd5a5-3f8b-4219-94de-2c2e320ace0a" download="localhost-8000" style="display: none;"></a><a href="blob:http://localhost:8000/0046c7dc-ab73-46fe-beb0-e412bc2c168a" download="localhost-8000" style="display: none;"></a><a href="blob:http://localhost:8000/d66c2e60-5e69-4426-a4a8-ec5b14a8ccaf" download="localhost-8000" style="display: none;"></a><a href="blob:http://localhost:8000/b8983d74-19e9-4201-93bc-3d99a0e4b632" download="localhost-8000" style="display: none;"></a><a href="blob:http://localhost:8000/a5d22a54-b0ec-4fca-bcca-f5406a1e5743" download="Scene" style="display: none;"></a></body></html>
