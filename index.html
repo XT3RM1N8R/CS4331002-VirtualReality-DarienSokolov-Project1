@@ -1,9 +1,76 @@
 <html xmlns="http://www.w3.org/1999/xhtml"><head>
     <script src="libs/aframe.min.js"></script>
-    <!--script src=ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Â¦Ãƒâ€šÃ‚Â¥libs/aframe-extras.loaders.min.js"></script-->
     <script src="//cdn.rawgit.com/donmccurdy/aframe-extras/v3.13.1/dist/aframe-extras.min.js"></script>
     <script src="libs/datguivr.js"></script>
-    <script src="libs/datguivr-aframe.js"></script>
+    <script>
+  AFRAME.registerComponent("gui", {
+    schema: {
+      name: { type: "string" },
+      properties: { type: "array" },
+      position: { type: "vec3" },
+      inheritPosition: { default: false }
+    },
+    init: function() {
+      // setup mouse interaction
+      var that = this;
+      this.el.sceneEl.addEventListener("camera-set-active", function() {
+        const scene = that.el.sceneEl.object3D;
+        const { camera, renderer } = that.el.sceneEl;
+        const gazeInput = dat.GUIVR.addInputObject(camera);
+  
+        dat.GUIVR.enableMouse(camera, renderer);
+        scene.add(gazeInput.cursor);
+
+        ['mousedown','touchstart']
+        .forEach( function(e){
+            window.addEventListener(e, function(){
+                gazeInput.pressed( true );
+            }, false );
+        });
+
+        ['mouseup','touchend']
+        .forEach( function(e){
+            window.addEventListener(e, function(){
+                gazeInput.pressed( false );
+            }, false );
+        });
+      });
+  
+      var scene = this.el.sceneEl.object3D;
+      var gui = dat.GUIVR.create(this.data.name);
+      //console.log("pos:", this.el.object3D.position.clone());
+      var guiPos = new THREE.Vector3(0, 0, 0);
+      if (this.data.position) {
+        ["x", "y", "z"].forEach(function(axis) {
+          guiPos[axis] = this[axis];
+        }, this.data.position);
+      }
+      if (this.data.inheritPosition) {
+        ["x", "y", "z"].forEach(function(axis) {
+          guiPos[axis] += this[axis];
+        }, this.el.object3D.position);
+      }
+      gui.position.set(guiPos.x, guiPos.y, guiPos.z);
+  
+      //console.log("data:", this.data.properties);
+      var thisObject = this.el.object3D;
+      this.data.properties.forEach(function(prop) {
+        prop = prop.split(".");
+        console.log("len", prop.length);
+        var min = 0;
+        var max = 10;
+        if (prop.length == 1) {
+          gui.add(thisObject[prop[0]], min, max);
+        } else {
+          var propController = gui.add(thisObject[prop[0]], prop[1], min, max);
+          propController.name(prop[0] + "." + prop[1]);
+        }
+      });
+      gui.name = this.data.name + "GUI";
+      scene.add(gui);
+    }
+  });
+</script>
 </head>
 <body class="a-body ">
 
@@ -15,39 +82,21 @@
         <audio id="test_audio" src="assets/sound/Deep Breaths (Ableton).wav">
     </audio></a-asset-item></a-assets>
     <a-sky color="#ECECEC" material="" geometry=""></a-sky>
-    <!-- a-entity position="54 1.5 12">
-        <a-camera universal-controls>
+ 
+    <!-- Camera -->
+    < a-entity position="54 1.5 12" universal-controls>
+        <a-camera >
             <a-entity raycaster="far: 150; objects: .intersectable" cursor geometry="primitive: ring; radiusOuter: 0.015;
                               radiusInner: 0.01; segmentsTheta: 32" material="color: #283644; shader: flat" position="0 0 -0.75"></a-entity>
         </a-camera>
-    </a-entity -->
-    <a-entity position="16.903254626716443 12.799999999999999 13.26894708970043" rotation="-40.10704565915758 60.962709401919554 0" id="Camera" camera="userHeight:1.6" raycaster="" cursor="" look-controls="" wasd-controls="" data-aframe-inspector-original-camera=""></a-entity>
+    </a-entity >
+    
     <a-box color="tomato" position="45 0 -10" depth="2" height="2" width="2" class="intersectable" material="" geometry="" id="Box 1">
        <a-animation begin="click" attribute="position" from="45 0 6" to="45 0 -10" dur="3000"></a-animation>
     </a-box>
-    <!--a-entity position="0 2 -1">
-    <a-datgui name="settings" position="0 2 -1">
-    <a-gui-slider id="scaleControl" name="scale" step="0.01" min="0.01" max="1"></a-gui-slider>
-    <a-gui-dropdown name="options">
-      <a-gui-option value="0">Item 0</a-gui-option>
-      <a-gui-option value="1">Item 1</a-gui-option>
-    </a-gui-dropdown>
-    <a-gui-checkbox name="on or off" default="true"></a-gui-checkbox>
-    <a-gui-button name="click me"></a-gui-button>
-  </a-datgui>
-</a-entity-->
-    <!--script type="text/javascript">
-
-
-var gui = dat.GUIVR.create( 'Ball Wave' );
-var scene = document.getElementById("Scene");
-var camera = document.getElementById("Camera");
-//const gazeInput = dat.GUIVR.addInputObject( document.getElementById("Camera") );
-
-
-//camera.add(dat.GUIVR.addInputObject( document.getElementById("Camera") ));
-scene.add( gui ); 
-</script-->
+    
+<a-sphere position="0.195 1.25 -5" radius="1.25" color="#EF2D5E" gui="name:Pink Sphere;properties:position.x, scale.y, scale.x, scale;position:5.04 1 4;inheritPosition:true" material="" geometry=""></a-sphere>
+    
     <!-- Ceiling -->
     <a-entity static-body="sphereRadius:NaN" geometry="depth:50;height:0.1;width:160" position="0 14 5" material="repeat:20 12;shader:flat;side:double;src:images/ceiling2.jpg" visible="false" id="Ceiling"></a-entity>
     <!-- Floor -->
@@ -56,16 +105,6 @@ scene.add( gui );
     <!-- Trim -->
     <a-entity geometry="depth:0.6;width:160" position="0 13.5 -19.7" material="repeat:32 1;roughness:1;src:images/trim.jpg" scale="0.456 1 1" id="North Trim"></a-entity>
     <a-entity geometry="depth:0.6;width:160" position="0 13.5 29.7" material="repeat:32 1;roughness:1;src:images/trim.jpg" scale="0.4 1 1" id="South Trim"></a-entity>
-    
-    
-
-    <!-- H Beams  -->
-    
-    
-    
-    
-    
-    
     
 
     <!-- V Beams  -->
@@ -79,17 +118,6 @@ scene.add( gui );
     <a-entity static-body="sphereRadius:NaN" geometry="width:13.5" position="-20 6.25 -19" rotation="0 0 90" material="roughness:1;src:images/beam.jpg" id="V-Beam 5"></a-entity>
     <a-entity static-body="sphereRadius:NaN" geometry="width:13.5" position="20 6.25 29" rotation="0 0 90" material="roughness:1;src:images/beam.jpg" id="V-Beam 6"></a-entity>
     
-    
-
-    
-    
-    
-    
-
-    
-    
-    
-    
 
     <!-- Walls  -->
     <a-entity static-body="sphereRadius:NaN" geometry="height:14;width:50" position="-26.179 6.5 5" rotation="0 90 0" material="repeat:4 2;roughness:1;src:images/brick1.jpg" id="West Wall" mixin="null"></a-entity>
@@ -97,213 +125,22 @@ scene.add( gui );
     <a-entity static-body="sphereRadius:NaN" geometry="height:14;width:160" position="0 6.5 -20" material="repeat:12 2;roughness:1;src:images/brick1.jpg" scale="0.361 1 1" id="North Wall" cursor="" raycaster=""></a-entity>
     <a-entity static-body="sphereRadius:NaN" geometry="height:14;width:160" position="0 6.5 30" material="repeat:12 2;roughness:1;src:images/brick1.jpg" scale="0.411 1 1" id="South Wall"></a-entity>
 
-    <!-- Columns -->
-    
-    
-    
-
-    
-    
-    
-
-    <!-- Banners -->
-    
-    
-
-    
-    
-
-    
-    
-
-    
-    
-
-    
-    
-
-    
-    
-
-    
-    
-    <!-- -->
-    
-    
-
-    
-    
-
-    
-    
-
-    
-    
-
-    
-    
-
-    
-    
-
-    
-    
-
-    <!-- Torch -->
-    
-    
-
-    <!-- Torch -->
-    
-    
-
-    <!-- Torch -->
-    
-    
-
-    <!-- Torch -->
-    
-    
-
-
-    <!-- Front Product -->
-    
-    
-
-    
-    
-
-    
-    
-
-    
-    
-
-    
-    
-
-    
-    
-
-    
-    
-
-    
-    
-
-    
-    
-
-    
-    
-
-    
-    
-
-    
-    
-
     
     <a-entity geometry="height:11;width:8" position="-10.216 6.141 -19.5" material="repeat:1 2;roughness:1;src:images/mount.jpg" id="Poster Frame">
         <a-entity geometry="primitive:plane;height:8.8;width:6.2" position="0 0 0.542" material="shader:flat;transparent:true;src:images/Smoke-Detector.png" id="Poster"></a-entity>
     </a-entity>
 
-    
-    
-
-    <!--
-    <a-entity geometry="primitive: plane; height: 8.8; width: 6.2" position="74.5 4.5 -18.98" rotation="0 0 0" material="shader: flat; transparent: true;
-    src: url(images/______.png)"></a-entity>
-    <a-entity geometry="primitive: box; depth: 1; height: 11; width: 8" position="74.5 4.2 -19.5" rotation="0 0 0" material="shader: standard;
-    roughness: 1; src: url(images/mount.jpg); repeat: 1 2"></a-entity>
-
-    <a-entity geometry="primitive: plane; height: 8.8; width: 6.2" position="-74.5 4.5 -18.98" rotation="0 0 0" material="shader: flat; transparent: true;
-    src: url(images/______.png)"></a-entity>
-    <a-entity geometry="primitive: box; depth: 1; height: 11; width: 8" position="-74.5 4.2 -19.5" rotation="0 0 0" material="shader: standard;
-    roughness: 1; src: url(images/mount.jpg); repeat: 1 2"></a-entity>
-    -->
-
-    <!-- Back Product -->
-    
-    
-
-    
-    
-
-    
-    
-
-    
-    
-
-    
-    
-
-    
-    
-
-    
-    
-
-    
-    
-
-    
-    
-
-    
-    
-
-    
-    
-
-    
-    
-
-    <!--
-    <a-entity geometry="primitive: plane; height: 8.8; width: 6.2" position="65.5 4.5 28.98" rotation="0 180 0" material="shader: flat; transparent: true;
-    src: url(images/_____.png)"></a-entity>
-    <a-entity geometry="primitive: box; depth: 1; height: 11; width: 8" position="65.5 4.2 29.5" rotation="0 0 0" material="shader: standard;
-    roughness: 1; src: url(images/mount.jpg); repeat: 1 2"></a-entity>
-
-    <a-entity geometry="primitive: plane; height: 8.8; width: 6.2" position="-65.5 4.5 28.98" rotation="0 180 0" material="shader: flat; transparent: true;
-    src: url(images/______.png)"></a-entity>
-    <a-entity geometry="primitive: box; depth: 1; height: 11; width: 8" position="-65.5 4.2 29.5" rotation="0 0 0" material="shader: standard;
-    roughness: 1; src: url(images/mount.jpg); repeat: 1 2"></a-entity>
-
-    <a-entity geometry="primitive: plane; height: 8.8; width: 6.2" position="74.5 4.5 28.98" rotation="0 180 0" material="shader: flat; transparent: true;
-    src: url(images/______.png)"></a-entity>
-    <a-entity geometry="primitive: box; depth: 1; height: 11; width: 8" position="74.5 4.2 29.5" rotation="0 0 0" material="shader: standard;
-    roughness: 1; src: url(images/mount.jpg); repeat: 1 2"></a-entity>
-
-    <a-entity geometry="primitive: plane; height: 8.8; width: 6.2" position="-74.5 4.5 28.98" rotation="0 180 0" material="shader: flat; transparent: true;
-    src: url(images/______.png)"></a-entity>
-    <a-entity geometry="primitive: box; depth: 1; height: 11; width: 8" position="-74.5 4.2 29.5" rotation="0 0 0" material="shader: standard;
-    roughness: 1; src: url(images/mount.jpg); repeat: 1 2"></a-entity>
-    -->
-
-    <!-- Welcome -->
-    
-
-    <!-- Chair -->
-    
-    <!-- Chair -->
-    
-
-    <!-- Table -->
-    
-
-    <!-- Table -->
-    
-    
-    
+   
     <a-entity position="0 4.926 14.594" light="angle:90;type:ambient" id="Light 1"></a-entity>
     
-    <a-entity position="11.301 6.688 15.388" id="Creeper Coin" rotation="0 311.5989000000001 0" obj-model="obj:assets/Models/creeper_coin/creeper_coin.obj" material="src:images/c.jpg">
+    <a-entity position="11.301 6.688 15.388" id="Creeper Coin" rotation="0 183.0176999999999 0" obj-model="obj:assets/Models/creeper_coin/creeper_coin.obj" material="src:images/c.jpg">
         <a-animation attribute="rotation" dur="2000" easing="linear" from="0 0 0" to="0 360 0" repeat="indefinite"></a-animation>
     </a-entity>
 
-<a-entity position="8.821 1.185 0.577" collada-model="assets/Models/Table.dae" id="Table 1"></a-entity><a-entity position="9.244 4.26 -9.794" rotation="0 -90.01166961505233 0" collada-model="assets/Models/Monitor.dae" id="Monitor"></a-entity></a-scene>
+<a-entity position="8.821 1.185 0.577" collada-model="assets/Models/Table.dae" id="Table 1"></a-entity>
+<a-entity position="9.244 4.26 -9.794" rotation="0 -90.01166961505233 0" collada-model="assets/Models/Monitor.dae" id="Monitor"></a-entity>
+
+<a-entity position="4.482 6.19 5.079" geometry="" id="testffff" gui="name:guitest;properties:position.x, position.y, visible;inheritPosition:true"></a-entity></a-scene>
 
 
 
