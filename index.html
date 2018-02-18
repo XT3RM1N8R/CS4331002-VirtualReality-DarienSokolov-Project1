@@ -84,13 +84,17 @@
     <a-sky color="#ECECEC" material="" geometry=""></a-sky>
  
     <!-- Camera -->
-    < a-entity position="54 1.5 12" universal-controls>
-        <a-camera >
+    <a-entity position="0 1.5 0" >
+        <a-camera>
             <a-entity raycaster="far: 150; objects: .intersectable" cursor geometry="primitive: ring; radiusOuter: 0.015;
                               radiusInner: 0.01; segmentsTheta: 32" material="color: #283644; shader: flat" position="0 0 -0.75"></a-entity>
         </a-camera>
-    </a-entity >
-    
+    </a-entity>
+    <a-entity position="16.903254626716443 12.799999999999999 13.26894708970043" 
+        rotation="-40.10704565915758 60.962709401919554 0" id="Camera"
+        camera="userHeight:1.6;active:false" raycaster="" cursor="" look-controls=""
+        wasd-controls="" data-aframe-inspector-original-camera=""></a-entity>
+    </a-entity>
     <a-box color="tomato" position="45 0 -10" depth="2" height="2" width="2" class="intersectable" material="" geometry="" id="Box 1">
        <a-animation begin="click" attribute="position" from="45 0 6" to="45 0 -10" dur="3000"></a-animation>
     </a-box>
