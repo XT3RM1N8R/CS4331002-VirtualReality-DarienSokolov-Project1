@@ -1,14 +1,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml"><head>
     <script src="libs/aframe.min.js"></script>
-    <!--script src=â€ťlibs/aframe-extras.loaders.min.js"></script-->
+    <!--script src=ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Â¦Ãƒâ€šÃ‚Â¥libs/aframe-extras.loaders.min.js"></script-->
     <script src="//cdn.rawgit.com/donmccurdy/aframe-extras/v3.13.1/dist/aframe-extras.min.js"></script>
+    <script src="libs/datguivr.js"></script>
+    <script src="libs/datguivr-aframe.js"></script>
 </head>
 <body class="a-body ">
 
 <a-scene inspector="" class="fullscreen" keyboard-shortcuts="" screenshot="" vr-mode-ui="" id="Scene">
     <a-assets>
         <audio id="blip1" src="assets/horned_owl.wav"></audio>
-        <a-asset-item id="creeper_coin" src="assets/Models/creeper_coin/creeper_coin.glb">
+        <a-asset-item id="creeper_coin" src="assets/Models/creeper_coin/creeper_coin.obj">
         <img id="creeper_image" src="images/c.jpg">
         <audio id="test_audio" src="assets/sound/Deep Breaths (Ableton).wav">
     </audio></a-asset-item></a-assets>
@@ -19,14 +21,33 @@
                               radiusInner: 0.01; segmentsTheta: 32" material="color: #283644; shader: flat" position="0 0 -0.75"></a-entity>
         </a-camera>
     </a-entity -->
+    <a-entity position="16.903254626716443 12.799999999999999 13.26894708970043" rotation="-40.10704565915758 60.962709401919554 0" id="Camera" camera="userHeight:1.6" raycaster="" cursor="" look-controls="" wasd-controls="" data-aframe-inspector-original-camera=""></a-entity>
     <a-box color="tomato" position="45 0 -10" depth="2" height="2" width="2" class="intersectable" material="" geometry="" id="Box 1">
        <a-animation begin="click" attribute="position" from="45 0 6" to="45 0 -10" dur="3000"></a-animation>
     </a-box>
-    <a-obj-model src="assets/AngryBirdsRedsMask.obj" mtl="assets/AngryBirdsRedsMask.mtl" position="18.011 1.5 6" material="" obj-model="" id="Angry Bird Red">
-            <a-box material="opacity:0;transparent:true;color:tomato" depth="2" height="2" width="2" sound="on:click;src:assets/horned_owl.wav" class="intersectable" position="0 0.71 0" geometry="" id="Bird Sound"></a-box>
-    </a-obj-model>
+    <!--a-entity position="0 2 -1">
+    <a-datgui name="settings" position="0 2 -1">
+    <a-gui-slider id="scaleControl" name="scale" step="0.01" min="0.01" max="1"></a-gui-slider>
+    <a-gui-dropdown name="options">
+      <a-gui-option value="0">Item 0</a-gui-option>
+      <a-gui-option value="1">Item 1</a-gui-option>
+    </a-gui-dropdown>
+    <a-gui-checkbox name="on or off" default="true"></a-gui-checkbox>
+    <a-gui-button name="click me"></a-gui-button>
+  </a-datgui>
+</a-entity-->
+    <!--script type="text/javascript">
 
 
+var gui = dat.GUIVR.create( 'Ball Wave' );
+var scene = document.getElementById("Scene");
+var camera = document.getElementById("Camera");
+//const gazeInput = dat.GUIVR.addInputObject( document.getElementById("Camera") );
+
+
+//camera.add(dat.GUIVR.addInputObject( document.getElementById("Camera") ));
+scene.add( gui ); 
+</script-->
     <!-- Ceiling -->
     <a-entity static-body="sphereRadius:NaN" geometry="depth:50;height:0.1;width:160" position="0 14 5" material="repeat:20 12;shader:flat;side:double;src:images/ceiling2.jpg" visible="false" id="Ceiling"></a-entity>
     <!-- Floor -->
@@ -39,9 +60,9 @@
     
 
     <!-- H Beams  -->
-    <a-entity geometry="width:50" position="0 13.5 5" rotation="0 90 0" material="repeat:2 1;roughness:1;src:images/beam.jpg" id="H-Beam 3"></a-entity>
-    <a-entity geometry="width:50" position="-20 13.5 5" rotation="0 90 0" material="repeat:2 1;roughness:1;src:images/beam.jpg" id="H-Beam 1"></a-entity>
-    <a-entity geometry="width:50" position="20 13.5 5" rotation="0 90 0" material="repeat:2 1;roughness:1;src:images/beam.jpg" id="H-Beam 2"></a-entity>
+    
+    
+    
     
     
     
@@ -262,53 +283,27 @@
     -->
 
     <!-- Welcome -->
-    <a-entity geometry="primitive:plane;height:6.9;width:10" position="0 9.2 -1" material="shader:flat;side:double;transparent:true;src:images/welcome.png" id="Texas Tech University Logo (TTU)">
-        <a-entity geometry="primitive:plane;height:6.9;width:10" position="0 0 -0.01" rotation="0 180 0" material="shader:flat;side:double;transparent:true;src:images/welcome-back.png"></a-entity>
-        <a-entity geometry="primitive:cylinder;height:11;radius:0.2" position="0 3.5 0" rotation="90 90 0" material="src:images/torch2.jpg"></a-entity>
-    </a-entity>
+    
 
     <!-- Chair -->
-    <a-entity geometry="depth:2;height:0.3;width:2" position="17.768 0.5 8" rotation="0 100 0" material="roughness:1;src:images/mount.jpg" id="Chair 1">
-        <a-entity geometry="depth:0.3;height:1.2;width:0.3" position="0.8 -0.5 0.8" rotation="0 90 0" material="roughness:1;src:images/mount.jpg"></a-entity>
-        <a-entity geometry="depth:0.3;height:1.2;width:0.3" position="-0.8 -0.5 0.8" rotation="0 90 0" material="roughness:1;src:images/mount.jpg"></a-entity>
-        <a-entity geometry="depth:0.3;height:1.2;width:0.3" position="0.8 -0.5 -0.8" rotation="0 90 0" material="roughness:1;src:images/mount.jpg"></a-entity>
-        <a-entity geometry="depth:0.3;height:1.2;width:0.3" position="-0.8 -0.5 -0.8" rotation="0 90 0" material="roughness:1;src:images/mount.jpg"></a-entity>
-        <a-entity geometry="height:0.3;width:2" position="-1 1 0" rotation="80 90 0" material="roughness:1;src:images/mount.jpg"></a-entity>
-        <a-entity geometry="depth:0.2;height:1.1;width:0.3" position="-0.9 0.5 0.8" rotation="-10 90 0" material="roughness:1;src:images/mount.jpg"></a-entity>
-        <a-entity geometry="depth:0.2;height:1.1;width:0.3" position="-0.9 0.5 -0.8" rotation="-10 90 0" material="roughness:1;src:images/mount.jpg"></a-entity>
-    </a-entity>
+    
     <!-- Chair -->
-    <a-entity geometry="depth:2;height:0.3" position="16.576 0.5 2" rotation="0 250 0" material="roughness:1;src:images/mount.jpg" id="Chair 2">
-        <a-entity geometry="depth:0.3;height:1.2;width:0.3" position="0.8 -0.5 0.8" rotation="0 90 0" material="roughness:1;src:images/mount.jpg"></a-entity>
-        <a-entity geometry="depth:0.3;height:1.2;width:0.3" position="-0.8 -0.5 0.8" rotation="0 90 0" material="roughness:1;src:images/mount.jpg"></a-entity>
-        <a-entity geometry="depth:0.3;height:1.2;width:0.3" position="0.8 -0.5 -0.8" rotation="0 90 0" material="roughness:1;src:images/mount.jpg"></a-entity>
-        <a-entity geometry="depth:0.3;height:1.2;width:0.3" position="-0.8 -0.5 -0.8" rotation="0 90 0" material="roughness:1;src:images/mount.jpg"></a-entity>
-        <a-entity geometry="height:0.3;width:2" position="-1 1 -0.085" rotation="80 90 0" material="roughness:1;src:images/mount.jpg"></a-entity>
-        <a-entity geometry="depth:0.2;height:1.1;width:0.3" position="-0.9 0.5 0.8" rotation="-10 90 0" material="roughness:1;src:images/mount.jpg"></a-entity>
-        <a-entity geometry="depth:0.2;height:1.1;width:0.3" position="-0.9 0.5 -0.8" rotation="-10 90 0" material="roughness:1;src:images/mount.jpg"></a-entity>
-    </a-entity>
+    
 
     <!-- Table -->
-    <a-entity static-body="sphereRadius:NaN" geometry="depth:8;height:0.3;width:3" position="17.846 1.2 5" rotation="0 90 0" material="roughness:1;src:images/mount.jpg" id="Table 1">
-        <a-entity static-body="sphereRadius:NaN" geometry="depth:0.3;height:2.2;width:0.3" position="-1.2 -1 3.8" rotation="0 90 0" material="roughness:1;src:images/mount.jpg" id="Table Leg 1"></a-entity>
-        <a-entity static-body="sphereRadius:NaN" geometry="depth:0.3;height:2.2;width:0.3" position="1.2 -1 3.8" rotation="0 90 0" material="roughness:1;src:images/mount.jpg" id="Table Leg 2"></a-entity>
-        <a-entity static-body="sphereRadius:NaN" geometry="depth:0.3;height:2.2;width:0.3" position="1.2 -1 -3.8" rotation="0 90 0" material="roughness:1;src:images/mount.jpg" id="Table Leg 3"></a-entity>
-        <a-entity static-body="sphereRadius:NaN" geometry="depth:0.3;height:2.2;width:0.3" position="-1.2 -1 -3.8" rotation="0 90 0" material="roughness:1;src:images/mount.jpg" id="Table Leg 4"></a-entity>
-
-        
-        <a-entity geometry="primitive:circle;radius:0.1" position="0.5 0.17 0.5" rotation="90 35 0" material="shader:flat;side:double;transparent:true;src:images/coin.png" id="Coin 3"></a-entity>
-        <a-entity geometry="primitive:circle;radius:0.1" position="1.3 0.17 0.6" rotation="270 90 0" material="shader:flat;side:double;transparent:true;src:images/coin.png" id="Coin 1"></a-entity>
-        <a-entity geometry="primitive:circle;radius:0.1" position="0.3 0.17 0.4" rotation="90 -40 0" material="shader:flat;side:double;transparent:true;src:images/coin.png" id="Coin 2"></a-entity>
-        <a-entity geometry="primitive:cylinder;height:0.42;openEnded:true;radius:0.15" position="0.9 0.4 1.2" material="repeat:2 1;side:double;src:images/cup.jpg" id="Can 1"></a-entity>
-    </a-entity>
+    
 
     <!-- Table -->
     
     
-    <a-entity position="13.618999929715843 6.4 17.59167352788942" rotation="-2.0626480624709425 38.731946950843586 0" id="Camera" camera="userHeight:1.6" raycaster="" cursor="" look-controls="" wasd-controls="" data-aframe-inspector-original-camera=""></a-entity>
-    <a-entity position="0 4.926 14.594" light="angle:90;shadowCameraVisible:true" id="Light 1"></a-entity>
-    <a-entity position="0 4.926 -7.13" rotation="0 180.02333923010465 0" light="angle:90;shadowCameraVisible:true" id="Light 2"></a-entity>
-    <a-entity position="11.301 6.688 15.388" id="Creeper Coin" animation-mixer="" gltf-model="assets/Models/creeper_coin/creeper_coin.glb"></a-entity></a-scene>
+    
+    <a-entity position="0 4.926 14.594" light="angle:90;type:ambient" id="Light 1"></a-entity>
+    
+    <a-entity position="11.301 6.688 15.388" id="Creeper Coin" rotation="0 311.5989000000001 0" obj-model="obj:assets/Models/creeper_coin/creeper_coin.obj" material="src:images/c.jpg">
+        <a-animation attribute="rotation" dur="2000" easing="linear" from="0 0 0" to="0 360 0" repeat="indefinite"></a-animation>
+    </a-entity>
+
+<a-entity position="8.821 1.185 0.577" collada-model="assets/Models/Table.dae" id="Table 1"></a-entity><a-entity position="9.244 4.26 -9.794" rotation="0 -90.01166961505233 0" collada-model="assets/Models/Monitor.dae" id="Monitor"></a-entity></a-scene>
 
 
 
