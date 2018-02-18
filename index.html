@@ -84,8 +84,8 @@
     <a-sky color="#ECECEC" material="" geometry=""></a-sky>
  
     <!-- Camera -->
-    <a-entity position="-2 4 -2.766" camera="" universal-controls="" id="Camera" rotation="2.2918311805232943 -899.3145552373395 0" velocity="" gamepad-controls="" keyboard-controls="" touch-controls="" hmd-controls="" mouse-controls="" data-aframe-inspector-original-camera="">
-            <a-entity raycaster="far:150;objects:.intersectable" cursor="" geometry="primitive:ring;radiusInner:0.01;radiusOuter:0.015" material="shader:flat;color:#283644" position="0 0 -0.75" data-aframe-inspector-original-camera=""></a-entity>  
+    <a-entity position="3.9158671120286797 4 5.694042921302405" camera="" universal-controls="" id="Camera" rotation="-6.118978792847428 -1334.991662654818 0" gamepad-controls="" keyboard-controls="" touch-controls="" hmd-controls="" mouse-controls="" data-aframe-inspector-original-camera="" velocity="-1.571676715956057e-17 0 -5.050328855385174e-17">
+            <a-entity raycaster="far:150;objects:.intersectable" cursor="fuse:true" geometry="primitive:ring;radiusInner:0.01;radiusOuter:0.015" material="shader:flat;color:#283644" position="0 0 -0.75" data-aframe-inspector-original-camera=""></a-entity>  
     </a-entity>
     
     
@@ -121,22 +121,28 @@
     <a-entity static-body="sphereRadius:NaN" geometry="height:14;width:160" position="0 6.5 14.996" material="repeat:12 2;roughness:1;src:images/brick1.jpg" scale="0.234 1 1" id="South Wall"></a-entity>
 
     
-    <a-entity geometry="height:11;width:8" position="2.415 4.585 -14.442" material="repeat:1 2;roughness:1;src:images/mount.jpg" id="Poster Frame" scale="0.5 0.5 0.5">
-        <a-entity geometry="primitive:plane;height:8.8;width:6.2" position="0 0 0.542" material="shader:flat;transparent:true;src:images/Smoke-Detector.png" id="Poster"></a-entity>
+    <a-entity geometry="height:11;width:8" position="2.415 4.585 -14.442" material="repeat:1 2;roughness:1;src:mount.jpg" id="Poster Frame" scale="0.5 0.5 0.5">
+        <a-entity geometry="primitive:plane;height:8.8;width:6.2" position="0 0 0.542" id="Poster" material="src:Exterminator_compact.png"></a-entity>
+    </a-entity><a-entity geometry="height:11;width:8" position="4.4 5.663 14.385" material="repeat:1 2;roughness:1;src:mount.jpg" id="Poster Frame-2" scale="0.5 0.5 0.5" rotation="0 180 0">
+        <a-entity geometry="primitive:plane;height:8.8;width:6.2" position="0 0 0.542" id="Poster" material="src:Exterminator_compact.png"></a-entity>
     </a-entity>
 
    
-    <a-entity position="0 4.926 14.594" light="angle:90;type:ambient" id="Light 1"></a-entity>
+    <a-entity position="0 4.926 -1.108" id="Light 1">
+        <a-light intensity="0.82" angle="90" type="ambient">
+            <a-gui name="Light Controls" properties="intensity" inheritPosition="true"></a-gui>
+        </a-light>
+    </a-entity>
     
-    <a-entity position="9.626 3.425 9.777" id="Creeper Coin" rotation="0 227.99340000000018 0" obj-model="obj:assets/Models/creeper_coin/creeper_coin.obj" material="src:images/c.jpg">
+    <a-entity position="0.299 5.525 13.325" id="Creeper Coin" rotation="0 83.91239999999874 0" obj-model="obj:assets/Models/creeper_coin/creeper_coin.obj" material="src:images/c.jpg">
         <a-animation attribute="rotation" dur="2000" easing="linear" from="0 0 0" to="0 360 0" repeat="indefinite"></a-animation>
     </a-entity>
 
 <a-entity position="12.349 0.533 -6.417" collada-model="assets/Models/Table.dae" id="Table 1" scale="1.22 1 1.81"></a-entity>
 <a-entity position="12.899 3.529 -7.741" rotation="0 180 0" collada-model="assets/Models/Monitor.dae" id="Monitor"></a-entity>
 
-<a-entity position="8.738 1.403 -6.408" rotation="0 90 0" collada-model="assets/Models/Chair.dae" material="" id="Chair"></a-entity><a-entity position="2.967 1.403 11.396" rotation="0 -90 0" collada-model="assets/Models/Chair.dae" material="" id="Chair-2"></a-entity><a-entity position="-3.542 1.403 11.537" rotation="0 90 0" collada-model="assets/Models/Chair.dae" material="" id="Chair-3"></a-entity><a-entity position="0 0.652 11.593" rotation="0 90 0" scale="1.33 1.231 1.69" collada-model="assets/Models/Table.dae" id="Table 2"></a-entity><a-entity position="-1.055 2.397 12.567" rotation="0 55.462314568663686 0" scale="0.5 0.5 0.5" collada-model="assets/Models/Boombox.dae" id="Boombox"></a-entity></a-scene>
+<a-entity position="8.738 1.403 -6.408" rotation="0 90 0" collada-model="assets/Models/Chair.dae" material="" id="Chair"></a-entity><a-entity position="2.967 1.403 11.396" rotation="0 -90 0" collada-model="assets/Models/Chair.dae" material="" id="Chair-2"></a-entity><a-entity position="-3.542 1.403 11.537" rotation="0 90 0" collada-model="assets/Models/Chair.dae" material="" id="Chair-3"></a-entity><a-entity position="0 0.652 11.593" rotation="0 90 0" scale="1.33 1.231 1.69" collada-model="assets/Models/Table.dae" id="Table 2"></a-entity><a-entity position="-1.055 2.519 11.944" rotation="0 55.462 0" scale="0.5 0.5 0.5" collada-model="assets/Models/Boombox.dae" id="Boombox" sound__music="src:assets/sound/Deep Breaths (Ableton).wav;on:click"></a-entity><a-entity position="-14.075 1.855 -7.596" scale="2.5 2.5 2.5" collada-model="assets/Models/Bed.dae" id="Bed"></a-entity></a-scene>
 
 
 
-<a href="blob:http://localhost:8000/a09cd5a5-3f8b-4219-94de-2c2e320ace0a" download="localhost-8000" style="display: none;"></a><a href="blob:http://localhost:8000/0046c7dc-ab73-46fe-beb0-e412bc2c168a" download="localhost-8000" style="display: none;"></a><a href="blob:http://localhost:8000/d66c2e60-5e69-4426-a4a8-ec5b14a8ccaf" download="localhost-8000" style="display: none;"></a><a href="blob:http://localhost:8000/b8983d74-19e9-4201-93bc-3d99a0e4b632" download="localhost-8000" style="display: none;"></a><a href="blob:http://localhost:8000/a5d22a54-b0ec-4fca-bcca-f5406a1e5743" download="Scene" style="display: none;"></a><a href="blob:http://localhost:8000/6366706b-266b-4435-8ea5-3373f594b3d3" download="Scene" style="display: none;"></a></body></html>
+<a href="blob:http://localhost:8000/a09cd5a5-3f8b-4219-94de-2c2e320ace0a" download="localhost-8000" style="display: none;"></a><a href="blob:http://localhost:8000/0046c7dc-ab73-46fe-beb0-e412bc2c168a" download="localhost-8000" style="display: none;"></a><a href="blob:http://localhost:8000/d66c2e60-5e69-4426-a4a8-ec5b14a8ccaf" download="localhost-8000" style="display: none;"></a><a href="blob:http://localhost:8000/b8983d74-19e9-4201-93bc-3d99a0e4b632" download="localhost-8000" style="display: none;"></a><a href="blob:http://localhost:8000/a5d22a54-b0ec-4fca-bcca-f5406a1e5743" download="Scene" style="display: none;"></a><a href="blob:http://localhost:8000/6366706b-266b-4435-8ea5-3373f594b3d3" download="Scene" style="display: none;"></a><a href="blob:http://localhost:8000/766df288-fa35-4628-b54c-17ac0c1587a6" download="Scene" style="display: none;"></a></body></html>
