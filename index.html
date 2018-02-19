@@ -1,5 +1,6 @@
 <html xmlns="http://www.w3.org/1999/xhtml"><head>
     <script src="https://rawgit.com/aframevr/aframe/3035117/dist/aframe-master.min.js"></script>
+    <!--script src="https://aframe.io/releases/0.7.1/aframe.min.js"></script-->
     <script src="//cdn.rawgit.com/donmccurdy/aframe-extras/v3.13.1/dist/aframe-extras.min.js"></script>
     <script src="libs/datguivr.js"></script>
     <script src="libs/datguivr-aframe.js"></script>
@@ -76,7 +77,14 @@
 </head>
 <body class="a-body ">
 
-<a-scene inspector="" class="fullscreen" keyboard-shortcuts="" screenshot="" vr-mode-ui="" id="Scene"><canvas class="a-canvas" data-aframe-canvas="true" width="300" height="150"></canvas>
+<a-scene inspector="" class="fullscreen" keyboard-shortcuts="" screenshot="" vr-mode-ui="" id="Scene">
+    <canvas class="a-canvas" data-aframe-canvas="true" width="300" height="150"></canvas>
+    <!-- To delete the nasty canvas that is created when exporting from the inspector-->
+    <script>
+        var element = document.getElementsByTagName("canvas");
+        element[0].parentNode.removeChild(element[0]);
+    </script>
+
     <a-assets>
         <audio id="hitclap" src="assets/sound/normal-hitclap9.wav"></audio>
         <a-asset-item id="creeper_coin" src="assets/Models/creeper_coin/creeper_coin.obj">
@@ -86,8 +94,8 @@
     <a-sky color="#ECECEC" material="" geometry=""></a-sky>
  
     <!-- Camera -->
-    <a-entity position="0.8220378923651734 4 9.271454565470556" camera="" universal-controls="" id="Camera" rotation="-28.578924361975826 -1303.2498008045707 0" velocity="" gamepad-controls="" keyboard-controls="" touch-controls="" hmd-controls="" mouse-controls="" scale="" visible="" raycaster="showLine:true" cursor="">
-            <a-entity  geometry="primitive:ring;radiusInner:0.01;radiusOuter:0.015" material="shader:flat;color:#283644" position="0 0 -0.75" line="end:0 0 -5.742170756218121" rotation="" scale="" visible=""></a-entity> 
+    <a-entity position="3.6362377118093554 4 7.061407210620143" camera="" universal-controls="" id="Camera" rotation="-5.6606125567429 -1258.5590927843655 0" velocity="" gamepad-controls="" keyboard-controls="" touch-controls="" hmd-controls="" mouse-controls="" raycaster="showLine:true" cursor="" data-aframe-inspector-original-camera="" line="end:0 0 -3.9999999999999982">
+            <a-entity geometry="primitive:ring;radiusInner:0.01;radiusOuter:0.015" material="shader:flat;color:#283644" position="0 0 -0.75" line="end:0 0 -5.742170756218121"></a-entity> 
     </a-entity>
     
     
@@ -96,46 +104,44 @@
     <!-- Floor -->
     <a-entity static-body="sphereRadius:NaN" geometry="depth:50;height:0.1;width:160" position="0 -0.5 -1.011" material="repeat:12 5;shader:flat;side:double;src:images/floor.jpg" scale="0.219 1 0.811" id="Floor"></a-entity>
 
-
     <!-- Walls  -->
     <a-entity static-body="sphereRadius:NaN" geometry="height:14;width:50" position="-15.722 6.5 -2.332" rotation="0 90 0" material="repeat:4 2;roughness:1;src:images/brick1.jpg" id="West Wall" mixin="null" scale="0.735 1 1"></a-entity>
     <a-entity static-body="sphereRadius:NaN" geometry="height:14;width:50" position="14.671 6.5 -0.96" rotation="0 90 0" material="repeat:4 2;roughness:1;src:images/brick1.jpg" id="East Wall" scale="0.771 1 1"></a-entity>
     <a-entity static-body="sphereRadius:NaN" geometry="height:14;width:160" position="0 6.5 -15.123" material="repeat:12 2;roughness:1;src:images/brick1.jpg" scale="0.24 1 1" id="North Wall"></a-entity>
     <a-entity static-body="sphereRadius:NaN" geometry="height:14;width:160" position="0 6.5 14.996" material="repeat:12 2;roughness:1;src:images/brick1.jpg" scale="0.234 1 1" id="South Wall"></a-entity>
 
-    
+    <!-- Posters -->
     <a-entity geometry="height:11;width:8" position="2.415 4.585 -14.442" material="repeat:1 2;roughness:1" id="Poster Frame" scale="0.5 0.5 0.5">
         <a-entity geometry="primitive:plane;height:8.8;width:6.2" position="0 0 0.542" id="Poster" material="src:Exterminator_compact.png"></a-entity>
     </a-entity><a-entity geometry="height:11;width:8" position="4.4 5.663 14.385" material="repeat:1 2;roughness:1" id="Poster Frame-2" scale="0.5 0.5 0.5" rotation="0 180 0">
         <a-entity geometry="primitive:plane;height:8.8;width:6.2" position="0 0 0.542" id="Poster" material="src:Exterminator_compact.png"></a-entity>
     </a-entity>
 
-   
-    <a-entity position="0 4.926 -1.108" id="Light-1" visible="true">
+    <!-- Lights -->
+    <a-entity position="0 4.926 -1.108" id="Light-1">
         <a-light intensity="0.82" angle="90" type="ambient" position="10 0 0" light="">
         </a-light>
     </a-entity>
     
-    <a-entity position="0.299 5.525 13.325" id="Creeper-Coin" rotation="0 14.664599999999883 0" obj-model="obj:assets/Models/creeper_coin/creeper_coin.obj" material="src:images/c.jpg">
+    <!-- Other Models -->
+    <a-entity position="0.299 5.525 13.325" id="Creeper-Coin" rotation="0 312.2523000000001 0" obj-model="obj:assets/Models/creeper_coin/creeper_coin.obj" material="src:images/c.jpg">
         <a-animation attribute="rotation" dur="2000" easing="linear" from="0 0 0" to="0 360 0" repeat="indefinite"></a-animation>
     </a-entity>
-
-    <a-entity position="12.349 0.533 -6.417" collada-model="assets/Models/Table.dae" id="Table 1" scale="1.22 1 1.81"></a-entity>
     <a-entity position="12.899 3.529 -7.741" rotation="0 180 0" collada-model="assets/Models/Monitor.dae" id="Monitor"></a-entity>
-
-    <a-entity position="8.738 1.403 -6.408" rotation="0 90 0" collada-model="assets/Models/Chair.dae" material="" id="Chair">
-    </a-entity><a-entity position="2.967 1.403 11.396" rotation="0 -90 0" collada-model="assets/Models/Chair.dae" material="" id="Chair-2">
-    </a-entity><a-entity position="-3.542 1.403 11.537" rotation="0 90 0" collada-model="assets/Models/Chair.dae" material="" id="Chair-3">
-    </a-entity><a-entity position="0 0.652 11.593" rotation="0 90 0" scale="1.33 1.231 1.69" collada-model="assets/Models/Table.dae" id="Table 2">
     </a-entity><a-entity position="-1.055 2.519 11.944" rotation="0 55.462 0" scale="0.5 0.5 0.5" collada-model="assets/Models/Boombox.dae" id="Boombox" sound__music="on:click;src:assets/sound/normal-hitclap9.wav">
         <a-entity id="mybutton" ui-button=""></a-entity>
     </a-entity>
     <a-entity position="-14.075 1.855 -7.596" scale="2.5 2.5 2.5" collada-model="assets/Models/Bed.dae" id="Bed"></a-entity>
 
-
-
-
-
+    <!-- Tables -->
+    <a-entity position="12.349 0.533 -6.417" collada-model="assets/Models/Table.dae" id="Table 1" scale="1.22 1 1.81"></a-entity>
+    <a-entity position="0 0.652 11.593" rotation="0 90 0" scale="1.33 1.231 1.69" collada-model="assets/Models/Table.dae" id="Table 2">
+    
+    <!-- Chairs -->
+    <a-entity position="8.738 1.403 -6.408" rotation="0 90 0" collada-model="assets/Models/Chair.dae" material="" id="Chair"></a-entity>
+    <a-entity position="2.967 1.403 11.396" rotation="0 -90 0" collada-model="assets/Models/Chair.dae" material="" id="Chair-2"></a-entity>
+    <a-entity position="-3.542 1.403 11.537" rotation="0 90 0" collada-model="assets/Models/Chair.dae" material="" id="Chair-3"></a-entity>
+    
 </a-scene>
     
 <script>
