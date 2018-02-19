@@ -1,7 +1,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml"><head>
-    <script src="libs/aframe.min.js"></script>
+    <script src="https://rawgit.com/aframevr/aframe/3035117/dist/aframe-master.min.js"></script>
     <script src="//cdn.rawgit.com/donmccurdy/aframe-extras/v3.13.1/dist/aframe-extras.min.js"></script>
     <script src="libs/datguivr.js"></script>
+    <script src="libs/datguivr-aframe.js"></script>
+    
     <script>
   AFRAME.registerComponent("gui", {
     schema: {
@@ -74,9 +76,9 @@
 </head>
 <body class="a-body ">
 
-<a-scene inspector="" class="fullscreen" keyboard-shortcuts="" screenshot="" vr-mode-ui="" id="Scene">
+<a-scene inspector="" class="fullscreen" keyboard-shortcuts="" screenshot="" vr-mode-ui="" id="Scene"><canvas class="a-canvas" data-aframe-canvas="true" width="300" height="150"></canvas>
     <a-assets>
-        <audio id="blip1" src="assets/horned_owl.wav"></audio>
+        <audio id="hitclap" src="assets/sound/normal-hitclap9.wav"></audio>
         <a-asset-item id="creeper_coin" src="assets/Models/creeper_coin/creeper_coin.obj">
         <img id="creeper_image" src="images/c.jpg">
         <audio id="test_audio" src="assets/sound/Deep Breaths (Ableton).wav">
@@ -84,8 +86,8 @@
     <a-sky color="#ECECEC" material="" geometry=""></a-sky>
  
     <!-- Camera -->
-    <a-entity position="-1.912887376419658 4 3.764930376181889" camera="" universal-controls="" id="Camera" rotation="-82.2077739862208 -1336.481352922158 0" gamepad-controls="" keyboard-controls="" touch-controls="" hmd-controls="" mouse-controls="" data-aframe-inspector-original-camera="" velocity="2.0648053549236716e-75 0 -7.852359233062366e-76" raycaster="" cursor="">
-            <a-entity raycaster="far:150;objects:.intersectable" geometry="primitive:ring;radiusInner:0.01;radiusOuter:0.015" material="shader:flat;color:#283644" position="0 0 -0.75" data-aframe-inspector-original-camera=""></a-entity> 
+    <a-entity position="0.8220378923651734 4 9.271454565470556" camera="" universal-controls="" id="Camera" rotation="-28.578924361975826 -1303.2498008045707 0" velocity="" gamepad-controls="" keyboard-controls="" touch-controls="" hmd-controls="" mouse-controls="" scale="" visible="" raycaster="showLine:true" cursor="">
+            <a-entity  geometry="primitive:ring;radiusInner:0.01;radiusOuter:0.015" material="shader:flat;color:#283644" position="0 0 -0.75" line="end:0 0 -5.742170756218121" rotation="" scale="" visible=""></a-entity> 
     </a-entity>
     
     
@@ -109,24 +111,47 @@
     </a-entity>
 
    
-    <a-entity position="0 4.926 -1.108" id="Light-1">
-        <a-light intensity="0.82" angle="90" type="ambient" gui="name:Light Controls;properties:visible, position.x, rotation.x, intensity;position:2 2 2;inheritPosition:true" light="">
+    <a-entity position="0 4.926 -1.108" id="Light-1" visible="true">
+        <a-light intensity="0.82" angle="90" type="ambient" position="10 0 0" light="">
         </a-light>
     </a-entity>
     
-    <a-entity position="0.299 5.525 13.325" id="Creeper-Coin" rotation="0 143.94330000000218 0" obj-model="obj:assets/Models/creeper_coin/creeper_coin.obj" material="src:images/c.jpg">
+    <a-entity position="0.299 5.525 13.325" id="Creeper-Coin" rotation="0 14.664599999999883 0" obj-model="obj:assets/Models/creeper_coin/creeper_coin.obj" material="src:images/c.jpg">
         <a-animation attribute="rotation" dur="2000" easing="linear" from="0 0 0" to="0 360 0" repeat="indefinite"></a-animation>
     </a-entity>
 
-<a-entity position="12.349 0.533 -6.417" collada-model="assets/Models/Table.dae" id="Table 1" scale="1.22 1 1.81"></a-entity>
-<a-entity position="12.899 3.529 -7.741" rotation="0 180 0" collada-model="assets/Models/Monitor.dae" id="Monitor"></a-entity>
+    <a-entity position="12.349 0.533 -6.417" collada-model="assets/Models/Table.dae" id="Table 1" scale="1.22 1 1.81"></a-entity>
+    <a-entity position="12.899 3.529 -7.741" rotation="0 180 0" collada-model="assets/Models/Monitor.dae" id="Monitor"></a-entity>
 
-<a-entity position="8.738 1.403 -6.408" rotation="0 90 0" collada-model="assets/Models/Chair.dae" material="" id="Chair"></a-entity><a-entity position="2.967 1.403 11.396" rotation="0 -90 0" collada-model="assets/Models/Chair.dae" material="" id="Chair-2"></a-entity><a-entity position="-3.542 1.403 11.537" rotation="0 90 0" collada-model="assets/Models/Chair.dae" material="" id="Chair-3"></a-entity><a-entity position="0 0.652 11.593" rotation="0 90 0" scale="1.33 1.231 1.69" collada-model="assets/Models/Table.dae" id="Table 2"></a-entity><a-entity position="-1.055 2.519 11.944" rotation="0 55.462 0" scale="0.5 0.5 0.5" collada-model="assets/Models/Boombox.dae" id="Boombox" sound__music="on:click;src:assets/sound/Deep Breaths (Ableton).wav"></a-entity><a-entity position="-14.075 1.855 -7.596" scale="2.5 2.5 2.5" collada-model="assets/Models/Bed.dae" id="Bed"></a-entity></a-scene>
+    <a-entity position="8.738 1.403 -6.408" rotation="0 90 0" collada-model="assets/Models/Chair.dae" material="" id="Chair">
+    </a-entity><a-entity position="2.967 1.403 11.396" rotation="0 -90 0" collada-model="assets/Models/Chair.dae" material="" id="Chair-2">
+    </a-entity><a-entity position="-3.542 1.403 11.537" rotation="0 90 0" collada-model="assets/Models/Chair.dae" material="" id="Chair-3">
+    </a-entity><a-entity position="0 0.652 11.593" rotation="0 90 0" scale="1.33 1.231 1.69" collada-model="assets/Models/Table.dae" id="Table 2">
+    </a-entity><a-entity position="-1.055 2.519 11.944" rotation="0 55.462 0" scale="0.5 0.5 0.5" collada-model="assets/Models/Boombox.dae" id="Boombox" sound__music="on:click;src:assets/sound/normal-hitclap9.wav">
+        <a-entity id="mybutton" ui-button=""></a-entity>
+    </a-entity>
+    <a-entity position="-14.075 1.855 -7.596" scale="2.5 2.5 2.5" collada-model="assets/Models/Bed.dae" id="Bed"></a-entity>
 
+
+
+
+
+</a-scene>
+    
 <script>
-    document.querySelector('#Creeper-Coin').addEventListener('click', function() {
-        document.querySelector('#Light-1').visible = !document.querySelector('#Light-1').visible;
+    document.getElementById('Creeper-Coin').addEventListener('click', function() {
+        document.getElementById('Light-1').setAttribute('visible', !document.getElementById('Light-1').getAttribute('visible'));
+        console.log('light off');
     });
 </script>
+
+<script>
+  var mybutton = document.querySelector('#mybutton');
+  mybutton.addEventListener('pressed', function () {
+    console.log('it works');
+  });
+  </script> 
+
+
 
 <a href="blob:http://localhost:8000/a09cd5a5-3f8b-4219-94de-2c2e320ace0a" download="localhost-8000" style="display: none;"></a><a href="blob:http://localhost:8000/0046c7dc-ab73-46fe-beb0-e412bc2c168a" download="localhost-8000" style="display: none;"></a><a href="blob:http://localhost:8000/d66c2e60-5e69-4426-a4a8-ec5b14a8ccaf" download="localhost-8000" style="display: none;"></a><a href="blob:http://localhost:8000/b8983d74-19e9-4201-93bc-3d99a0e4b632" download="localhost-8000" style="display: none;"></a><a href="blob:http://localhost:8000/a5d22a54-b0ec-4fca-bcca-f5406a1e5743" download="Scene" style="display: none;"></a><a href="blob:http://localhost:8000/6366706b-266b-4435-8ea5-3373f594b3d3" download="Scene" style="display: none;"></a><a href="blob:http://localhost:8000/766df288-fa35-4628-b54c-17ac0c1587a6" download="Scene" style="display: none;"></a></body></html>
