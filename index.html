@@ -88,13 +88,13 @@
     <a-assets>
         <audio id="hitclap" src="assets/sound/normal-hitclap9.wav"></audio>
         <a-asset-item id="creeper_coin" src="assets/Models/creeper_coin/creeper_coin.obj"></a-asset-item>
-        <img id="creeper_image" src="images/c.jpg"></img>
+        <img id="creeper_image" src="images/c.jpg">
         <audio id="test_audio" src="assets/sound/Deep Breaths (Ableton).wav"></audio>
     </a-assets>
     <a-sky color="#ECECEC" material="" geometry=""></a-sky>
  
     <!-- Camera -->
-    <a-entity position="1.8141705759880546 4 8.457537994009611" camera="" universal-controls="" id="Camera" rotation="-18.494867167673345 -1337.6272685124181 0" velocity="1.4266653821025697e-23 0 -1.2890305189460963e-23" gamepad-controls="" keyboard-controls="" touch-controls="" hmd-controls="" mouse-controls="" raycaster="showLine:true" cursor="" data-aframe-inspector-original-camera="" line="end:0 0 -4.000000000000001">
+    <a-entity position="1.8141705759880546 4 8.457537994009611" camera="" universal-controls="" id="Camera" rotation="16.111783658228376 -1276.8937422285505 0" velocity="" gamepad-controls="" keyboard-controls="" touch-controls="" hmd-controls="" mouse-controls="" raycaster="showLine:true" cursor="" data-aframe-inspector-original-camera="" line="end:0 0 -4">
             <a-entity geometry="primitive:ring;radiusInner:0.01;radiusOuter:0.015" material="shader:flat;color:#283644" position="0 0 -0.75" line="end:0 0 -5.742170756218121"></a-entity> 
     </a-entity>
     
@@ -124,11 +124,11 @@
     </a-entity>
     
     <!-- Other Models -->
-    <a-entity position="0.299 5.525 13.325" id="Creeper-Coin" rotation="0 359.90009999999995 0" obj-model="obj:assets/Models/creeper_coin/creeper_coin.obj" material="src:images/c.jpg">
+    <a-entity position="0.299 5.525 13.325" id="Creeper-Coin" rotation="0 138.14459999999988 0" obj-model="obj:assets/Models/creeper_coin/creeper_coin.obj" material="src:images/c.jpg">
         <a-animation attribute="rotation" dur="2000" easing="linear" from="0 0 0" to="0 360 0" repeat="indefinite"></a-animation>
     </a-entity>
     <a-entity position="12.899 3.529 -7.741" rotation="0 180 0" collada-model="assets/Models/Monitor.dae" id="Monitor"></a-entity>
-    <a-entity position="-1.055 2.519 11.944" rotation="0 55.462 0" scale="0.5 0.5 0.5" collada-model="assets/Models/Boombox.dae" id="Boombox" sound__music="on:click;src:assets/sound/normal-hitclap9.wav">
+    <a-entity position="-1.055 2.519 11.944" rotation="0 55.462 0" scale="0.5 0.5 0.5" collada-model="assets/Models/Boombox.dae" id="Boombox" sound__music="on:click;src:assets/sound/Deep Breaths (Ableton).wav">
         <a-entity id="mybutton" ui-button=""></a-entity>
     </a-entity>
     <a-entity position="-14.075 1.855 -7.596" scale="2.5 2.5 2.5" collada-model="assets/Models/Bed.dae" id="Bed"></a-entity>
@@ -142,7 +142,7 @@
     <a-entity position="2.967 1.403 11.396" rotation="0 -90 0" collada-model="assets/Models/Chair.dae" material="" id="Chair-2"></a-entity>
     <a-entity position="-3.542 1.403 11.537" rotation="0 90 0" collada-model="assets/Models/Chair.dae" material="" id="Chair-3"></a-entity>
     
-</a-entity></a-scene>
+</a-scene>
     
 <script>
     document.getElementById('Creeper-Coin').addEventListener('click', function() {
