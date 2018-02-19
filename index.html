@@ -4,7 +4,31 @@
     <script src="//cdn.rawgit.com/donmccurdy/aframe-extras/v3.13.1/dist/aframe-extras.min.js"></script>
     <script src="libs/datguivr.js"></script>
     <script src="libs/datguivr-aframe.js"></script>
-    
+    <script>
+    AFRAME.registerComponent("start-click", {
+        init: function() {
+            const sceneEl = this.el.sceneEl
+            const canvasEl = sceneEl.canvas
+            const camera = document.querySelector('a-camera')
+            this.isMoving = false
+            this.position = {x: 0, y: 20, z: 80}
+
+            canvasEl.addEventListener('touchstart', () => {
+                this.isMoving = true
+            })
+
+            canvasEl.addEventListener('touchend', () => {
+                this.isMoving = false
+            })
+        },
+        tick: function () {
+          if (this.isMoving) {
+            this.position.z -= 1
+            camera.setAttribute('position', this.position)
+          }
+        }
+    });
+    </script>
     <script>
   AFRAME.registerComponent("gui", {
     schema: {
