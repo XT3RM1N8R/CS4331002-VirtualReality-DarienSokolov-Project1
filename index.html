@@ -1,163 +1,47 @@
-<html xmlns="http://www.w3.org/1999/xhtml"><head>
-    <script src="https://rawgit.com/aframevr/aframe/3035117/dist/aframe-master.min.js"></script>
-    <!--script src="https://aframe.io/releases/0.7.1/aframe.min.js"></script-->
-    <script src="//cdn.rawgit.com/donmccurdy/aframe-extras/v3.13.1/dist/aframe-extras.min.js"></script>
-    <script src="libs/datguivr.js"></script>
-    <script src="libs/datguivr-aframe.js"></script>
-    
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hello, WebVR! - A-Frame</title>
+    <meta name="description" content="Hello, WebVR! - A-Frame">
+    <script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-extras.ocean@3.13.1/dist/aframe-extras.ocean.min.js"></script>
     <script>
-  AFRAME.registerComponent("gui", {
-    schema: {
-      name: { type: "string" },
-      properties: { type: "array" },
-      position: { type: "vec3" },
-      inheritPosition: { default: false }
-    },
-    init: function() {
-      // setup mouse interaction
-      var that = this;
-      this.el.sceneEl.addEventListener("camera-set-active", function() {
-        const scene = that.el.sceneEl.object3D;
-        const { camera, renderer } = that.el.sceneEl;
-        const gazeInput = dat.GUIVR.addInputObject(camera);
-  
-        dat.GUIVR.enableMouse(camera, renderer);
-        scene.add(gazeInput.cursor);
+    AFRAME.registerComponent("start-click", {
+        init: function() {
+            const sceneEl = this.el.sceneEl
+            const canvasEl = sceneEl.canvas
+            const camera = document.querySelector('a-camera')
+            this.isMoving = false
+            this.position = {x: 0, y: 20, z: 80}
 
-        ['mousedown','touchstart']
-        .forEach( function(e){
-            window.addEventListener(e, function(){
-                gazeInput.pressed( true );
-            }, false );
-        });
+            canvasEl.addEventListener('touchstart', () => {
+                this.isMoving = true
+            })
 
-        ['mouseup','touchend']
-        .forEach( function(e){
-            window.addEventListener(e, function(){
-                gazeInput.pressed( false );
-            }, false );
-        });
-      });
-  
-      var scene = this.el.sceneEl.object3D;
-      var gui = dat.GUIVR.create(this.data.name);
-      //console.log("pos:", this.el.object3D.position.clone());
-      var guiPos = new THREE.Vector3(0, 0, 0);
-      if (this.data.position) {
-        ["x", "y", "z"].forEach(function(axis) {
-          guiPos[axis] = this[axis];
-        }, this.data.position);
-      }
-      if (this.data.inheritPosition) {
-        ["x", "y", "z"].forEach(function(axis) {
-          guiPos[axis] += this[axis];
-        }, this.el.object3D.position);
-      }
-      gui.position.set(guiPos.x, guiPos.y, guiPos.z);
-  
-      //console.log("data:", this.data.properties);
-      var thisObject = this.el.object3D;
-      this.data.properties.forEach(function(prop) {
-        prop = prop.split(".");
-        console.log("len", prop.length);
-        var min = 0;
-        var max = 10;
-        if (prop.length == 1) {
-          gui.add(thisObject[prop[0]], min, max);
-        } else {
-          var propController = gui.add(thisObject[prop[0]], prop[1], min, max);
-          propController.name(prop[0] + "." + prop[1]);
+            canvasEl.addEventListener('touchend', () => {
+                this.isMoving = false
+            })
+        },
+        tick: function () {
+          if (this.isMoving) {
+            this.position.z -= 1
+            camera.setAttribute('position', this.position)
+          }
         }
-      });
-      gui.name = this.data.name + "GUI";
-      scene.add(gui);
-    }
-  });
-</script>
-</head>
-<body class="a-body ">
-
-<a-scene inspector="" class="fullscreen" keyboard-shortcuts="" screenshot="" vr-mode-ui="" id="Scene"><canvas class="a-canvas" data-aframe-canvas="true" width="300" height="150"></canvas>
-    
-    <!-- To delete the canvas that is created when exporting; this allows the inspector camera to work properly -->
-    <script>
-        var element = document.getElementsByTagName("canvas");
-        element[0].parentNode.removeChild(element[0]);
-    </script>
-
-    <a-assets>
-        <audio id="hitclap" src="assets/sound/normal-hitclap9.wav"></audio>
-        <a-asset-item id="creeper_coin" src="assets/Models/creeper_coin/creeper_coin.obj"></a-asset-item>
-        <img id="creeper_image" src="images/c.jpg">
-        <audio id="test_audio" src="assets/sound/Deep Breaths (Ableton).wav"></audio>
-    </a-assets>
-    <a-sky color="#ECECEC" material="" geometry=""></a-sky>
- 
-    <!-- Camera -->
-    <a-entity position="1.8141705759880546 4 8.457537994009611" camera="" universal-controls="" id="Camera" rotation="16.111783658228376 -1276.8937422285505 0" velocity="" gamepad-controls="" keyboard-controls="" touch-controls="" hmd-controls="" mouse-controls="" raycaster="showLine:true" cursor="" data-aframe-inspector-original-camera="" line="end:0 0 -4">
-            <a-entity geometry="primitive:ring;radiusInner:0.01;radiusOuter:0.015" material="shader:flat;color:#283644" position="0 0 -0.75" line="end:0 0 -5.742170756218121"></a-entity> 
-    </a-entity>
-    
-    
-    <!-- Ceiling -->
-    <a-entity static-body="sphereRadius:NaN" geometry="depth:50;height:0.1;width:160" position="0 14 5" material="repeat:20 12;shader:flat;side:double;src:images/ceiling2.jpg" visible="false" id="Ceiling"></a-entity>
-    <!-- Floor -->
-    <a-entity static-body="sphereRadius:NaN" geometry="depth:50;height:0.1;width:160" position="0 -0.5 -1.011" material="repeat:12 5;shader:flat;side:double;src:images/floor.jpg" scale="0.219 1 0.811" id="Floor"></a-entity>
-
-    <!-- Walls  -->
-    <a-entity static-body="sphereRadius:NaN" geometry="height:14;width:50" position="-15.722 6.5 -2.332" rotation="0 90 0" material="repeat:4 2;roughness:1;src:images/brick1.jpg" id="West Wall" mixin="null" scale="0.735 1 1"></a-entity>
-    <a-entity static-body="sphereRadius:NaN" geometry="height:14;width:50" position="14.671 6.5 -0.96" rotation="0 90 0" material="repeat:4 2;roughness:1;src:images/brick1.jpg" id="East Wall" scale="0.771 1 1"></a-entity>
-    <a-entity static-body="sphereRadius:NaN" geometry="height:14;width:160" position="0 6.5 -15.123" material="repeat:12 2;roughness:1;src:images/brick1.jpg" scale="0.24 1 1" id="North Wall"></a-entity>
-    <a-entity static-body="sphereRadius:NaN" geometry="height:14;width:160" position="0 6.5 14.996" material="repeat:12 2;roughness:1;src:images/brick1.jpg" scale="0.234 1 1" id="South Wall"></a-entity>
-
-    <!-- Posters -->
-    <a-entity geometry="height:11;width:8" position="2.415 4.585 -14.442" material="repeat:1 2;roughness:1" id="Poster Frame" scale="0.5 0.5 0.5">
-        <a-entity geometry="primitive:plane;height:8.8;width:6.2" position="0 0 0.542" id="Poster" material="src:Exterminator_compact.png"></a-entity>
-    </a-entity><a-entity geometry="height:11;width:8" position="4.4 5.663 14.385" material="repeat:1 2;roughness:1" id="Poster Frame-2" scale="0.5 0.5 0.5" rotation="0 180 0">
-        <a-entity geometry="primitive:plane;height:8.8;width:6.2" position="0 0 0.542" id="Poster" material="src:Exterminator_compact.png"></a-entity>
-    </a-entity>
-
-    <!-- Lights -->
-    <a-entity position="0 4.926 -1.108" id="Light-1">
-        <a-light intensity="0.82" angle="90" type="ambient" position="10 0 0" light="">
-        </a-light>
-    </a-entity>
-    
-    <!-- Other Models -->
-    <a-entity position="0.299 5.525 13.325" id="Creeper-Coin" rotation="0 138.14459999999988 0" obj-model="obj:assets/Models/creeper_coin/creeper_coin.obj" material="src:images/c.jpg">
-        <a-animation attribute="rotation" dur="2000" easing="linear" from="0 0 0" to="0 360 0" repeat="indefinite"></a-animation>
-    </a-entity>
-    <a-entity position="12.899 3.529 -7.741" rotation="0 180 0" collada-model="assets/Models/Monitor.dae" id="Monitor"></a-entity>
-    <a-entity position="-1.055 2.519 11.944" rotation="0 55.462 0" scale="0.5 0.5 0.5" collada-model="assets/Models/Boombox.dae" id="Boombox" sound__music="on:click;src:assets/sound/Deep Breaths (Ableton).wav">
-        <a-entity id="mybutton" ui-button=""></a-entity>
-    </a-entity>
-    <a-entity position="-14.075 1.855 -7.596" scale="2.5 2.5 2.5" collada-model="assets/Models/Bed.dae" id="Bed"></a-entity>
-
-    <!-- Tables -->
-    <a-entity position="12.349 0.533 -6.417" collada-model="assets/Models/Table.dae" id="Table 1" scale="1.22 1 1.81"></a-entity>
-    <a-entity position="0 0.652 11.593" rotation="0 90 0" scale="1.33 1.231 1.69" collada-model="assets/Models/Table.dae" id="Table 2"></a-entity>
-    
-    <!-- Chairs -->
-    <a-entity position="8.738 1.403 -6.408" rotation="0 90 0" collada-model="assets/Models/Chair.dae" material="" id="Chair"></a-entity>
-    <a-entity position="2.967 1.403 11.396" rotation="0 -90 0" collada-model="assets/Models/Chair.dae" material="" id="Chair-2"></a-entity>
-    <a-entity position="-3.542 1.403 11.537" rotation="0 90 0" collada-model="assets/Models/Chair.dae" material="" id="Chair-3"></a-entity>
-    
-</a-scene>
-    
-<script>
-    document.getElementById('Creeper-Coin').addEventListener('click', function() {
-        document.getElementById('Light-1').setAttribute('visible', !document.getElementById('Light-1').getAttribute('visible'));
-        console.log('light off');
     });
-</script>
-
-<script>
-  var mybutton = document.querySelector('#mybutton');
-  mybutton.addEventListener('pressed', function () {
-    console.log('it works');
-  });
-</script> 
-
-
-
-<a href="blob:http://localhost:8000/a09cd5a5-3f8b-4219-94de-2c2e320ace0a" download="localhost-8000" style="display: none;"></a><a href="blob:http://localhost:8000/0046c7dc-ab73-46fe-beb0-e412bc2c168a" download="localhost-8000" style="display: none;"></a><a href="blob:http://localhost:8000/d66c2e60-5e69-4426-a4a8-ec5b14a8ccaf" download="localhost-8000" style="display: none;"></a><a href="blob:http://localhost:8000/b8983d74-19e9-4201-93bc-3d99a0e4b632" download="localhost-8000" style="display: none;"></a><a href="blob:http://localhost:8000/a5d22a54-b0ec-4fca-bcca-f5406a1e5743" download="Scene" style="display: none;"></a><a href="blob:http://localhost:8000/6366706b-266b-4435-8ea5-3373f594b3d3" download="Scene" style="display: none;"></a><a href="blob:http://localhost:8000/766df288-fa35-4628-b54c-17ac0c1587a6" download="Scene" style="display: none;"></a></body></html>
+    </script>
+  </head>
+  <body>
+    <a-scene start-click>
+      <a-camera id="camera" position="0 20 80" fly wasd-controls-enabled="false">
+          <a-cursor fuse="false" id="cursor" color="black"></a-cursor>
+      </a-camera>
+      <a-ocean id="ocean" width="200" depth="200" density="200" position="0 0 0"></a-ocean>
+      <a-box position="-1 0.5 -3" rotation="0 45 0" color="#4CC3D9" shadow></a-box>
+      <a-sphere position="0 1.25 -5" radius="1.25" color="#EF2D5E" shadow></a-sphere>
+      <a-cylinder position="1 0.75 -3" radius="0.5" height="1.5" color="#FFC65D" shadow></a-cylinder>
+      <a-plane position="0 0 -4" rotation="-90 0 0" width="4" height="4" color="#7BC8A4" shadow></a-plane>
+      <a-sky color="#ECECEC"></a-sky>
+    </a-scene>
+  </body>
+</html>
