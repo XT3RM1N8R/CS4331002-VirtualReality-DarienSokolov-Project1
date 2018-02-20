@@ -8,6 +8,10 @@ Click the light switch by the fridge to toggle the lighting on that side of the 
 
 Click on the Boombox Handle to start an audio track. The track can't be stopped at the moment, so I don't suggest turning it on until you're ready to stop the experience, in case you don't want to listen to the track the whole time.
 
+Use the datGUIVR controls by the refrigerator to modify the X scale and X position of the refrigerator in real-time.
+
+Notice the use of Normal, Diffuse, and Occlusion maps for the walls--and Displacement, for the ceiling--but I'm afraid the displacement map isn't very noticeable, in this case.
+
 Credits:
 
 Some of the models did not have clear owners, so I linked to the places where I got them in the index.html file. If I made any changes, those will be documented in-context inside of the index.html file as well.
