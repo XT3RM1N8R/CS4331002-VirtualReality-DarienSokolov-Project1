@@ -94,7 +94,7 @@
     <a-sky color="#ECECEC" material="" geometry=""></a-sky>
  
     <!-- Camera -->
-    <a-entity position="2.9550539675377823 4 -0.06060610797774156" camera="" universal-controls="" id="Camera" rotation="-4.056330730376539 -702.3316652713605 0" velocity="" gamepad-controls="" keyboard-controls="" touch-controls="" hmd-controls="" mouse-controls="" raycaster="showLine:true" cursor="" data-aframe-inspector-original-camera="" line="end:0 0 -6.492000102996827">
+    <a-entity position="2.9590069799170378 4 -1.1497697884318567" camera="" universal-controls="" id="Camera" rotation="3.7358952834026606 -720.2079484794422 0" velocity="8.850559913620812e-15 0 -2.4385727857028836e-12" gamepad-controls="" keyboard-controls="" touch-controls="" hmd-controls="" mouse-controls="" raycaster="showLine:true" cursor="" data-aframe-inspector-original-camera="" line="end:0 0 -6.492000102996827">
             <a-entity geometry="primitive:ring;radiusInner:0.01;radiusOuter:0.015" material="shader:flat;color:#283644" position="0 0 -0.75" line="end:0 0 -5.742"></a-entity> 
     </a-entity>
     
@@ -122,7 +122,7 @@
     <a-light position="-14.544 8.037 -12.01" id="Light-4" intensity="0.82" angle="90" type="ambient" light="intensity:1.5;type:point;decay:10;distance:200"></a-light>
     
     <!-- Other Models -->
-    <a-entity position="8.199 5.525 7.217" id="Creeper-Coin" rotation="0 296.8065000000084 0" obj-model="obj:assets/Models/creeper_coin/creeper_coin.obj" material="src:images/c.jpg">
+    <a-entity position="8.199 5.525 7.217" id="Creeper-Coin" rotation="0 143.98740000000137 0" obj-model="obj:assets/Models/creeper_coin/creeper_coin.obj" material="src:images/c.jpg">
         <a-animation attribute="rotation" dur="2000" easing="linear" from="0 0 0" to="0 360 0" repeat="indefinite"></a-animation>
     </a-entity>
     <a-entity position="12.899 3.529 -7.741" rotation="0 180 0" collada-model="assets/Models/Monitor.dae" id="Monitor"></a-entity>
@@ -131,7 +131,7 @@
     </a-entity>
     <a-entity position="9.578 1.855 10.313" scale="2.5 2.5 2.5" collada-model="assets/Models/Bed.dae" id="Bed" material="side:double;color:#575757"></a-entity>
     <a-entity position="11.906 0.804 -11.803" collada-model="assets/Models/Server Rack.dae" id="Server Rack"></a-entity>
-    
+    <a-entity position="-12.594 2.731 0" rotation="0 90 0" scale="0.8 0.8 0.8" collada-model="assets/Models/12 Octave Keys.dae" id="Piano"></a-entity>
 
     <!-- Tables -->
     <a-entity position="12.349 0.533 -6.417" collada-model="assets/Models/Table.dae" id="Table 1" scale="1.22 1 1.81"></a-entity>
@@ -143,7 +143,7 @@
     <a-entity position="-3.542 1.403 11.537" rotation="0 90 0" collada-model="assets/Models/Chair.dae" material="" id="Chair-3"></a-entity>
     
     <!-- https://free3d.com/3d-model/key-board-40566.html ; I modified the specular and removed the packaged light -->
-    <a-entity position="11.285 1.604 -8.321" rotation="0 -75.63000000000001 0" scale="2 2 2" collada-model="assets/Models/keyboard.dae" id="Keyboard"></a-entity>
+    <a-entity position="11.385 1.634 -8.321" rotation="0 -75.63042895726866 0" scale="2 2 2" collada-model="assets/Models/keyboard.dae" id="Keyboard"></a-entity>
 
     <!-- https://free3d.com/3d-model/lampsconce-02-63056.html -->
     <a-entity position="-15.251 6.748 -12.149" rotation="0 90 0" scale="5 5 5" collada-model="assets/Models/lamp.dae" id="Lamp-1"></a-entity>
@@ -151,7 +151,8 @@
     <a-entity position="14.147 6.748 10.481" rotation="0 -90 0" scale="5 5 5" collada-model="assets/Models/lamp.dae" id="Lamp-3"></a-entity>
     <a-entity position="14.147 6.748 -11.796" rotation="0 -90 0" scale="5 5 5" collada-model="assets/Models/lamp.dae" id="Lamp-4"></a-entity>
 
-<a-entity position="-12.594 2.731 0" rotation="0 90 0" scale="0.8 0.8 0.8" collada-model="assets/Models/12 Octave Keys.dae"></a-entity></a-scene>
+    <!-- https://www.cgtrader.com/free-3d-models/electronics/computer/mouse--6 -->
+    <a-entity position="11.564 1.741 -5.913" rotation="0 -80.50057021588067 0" scale="0.05 0.05 0.05" obj-model="obj:assets/Models/mouse.obj" id="Mouse"></a-entity></a-scene>
     
 <script>
     document.getElementById('Poster').addEventListener('click', function() {
