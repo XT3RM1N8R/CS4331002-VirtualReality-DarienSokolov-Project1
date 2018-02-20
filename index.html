@@ -94,7 +94,7 @@
     <a-sky color="#ECECEC" material="" geometry=""></a-sky>
  
     <!-- Camera -->
-    <a-entity position="1.094378269797259 4 -2.804814379140204" camera="" universal-controls="" id="Camera" rotation="-47.14275692421438 -555.8836528359218 0" velocity="" gamepad-controls="" keyboard-controls="" touch-controls="" hmd-controls="" mouse-controls="" raycaster="showLine:true" cursor="" data-aframe-inspector-original-camera="" line="end:0 0 -5.931377059431949">
+    <a-entity position="-3.68577973503874 4 -4.6246164451683365" camera="" universal-controls="" id="Camera" rotation="28.029305796949604 -676.3193813724215 0" velocity="5.088691550435127e-19 0 1.5395766355593569e-18" gamepad-controls="" keyboard-controls="" touch-controls="" hmd-controls="" mouse-controls="" raycaster="showLine:true" cursor="" data-aframe-inspector-original-camera="" line="end:0 0 -6.492000102996826">
             <a-entity geometry="primitive:ring;radiusInner:0.01;radiusOuter:0.015" material="shader:flat;color:#283644" position="0 0 -0.75" line="end:0 0 -5.742"></a-entity> 
     </a-entity>
     
@@ -122,12 +122,11 @@
     <a-light position="-14.544 8.037 -12.01" id="Light-4" intensity="0.82" angle="90" type="ambient" light="intensity:1.5;type:point;decay:10;distance:200"></a-light>
     
     <!-- Other Models -->
-    <a-entity position="8.199 5.525 7.217" id="Creeper-Coin" rotation="0 209.8709999999998 0" obj-model="obj:assets/Models/creeper_coin/creeper_coin.obj" material="src:images/c.jpg">
+    <a-entity position="8.199 5.525 7.217" id="Creeper-Coin" rotation="0 182.9583000000022 0" obj-model="obj:assets/Models/creeper_coin/creeper_coin.obj" material="src:images/c.jpg">
         <a-animation attribute="rotation" dur="2000" easing="linear" from="0 0 0" to="0 360 0" repeat="indefinite"></a-animation>
     </a-entity>
     <a-entity position="12.899 3.529 -7.741" rotation="0 180 0" collada-model="assets/Models/Monitor.dae" id="Monitor"></a-entity>
     <a-entity position="-1.055 2.519 11.944" rotation="0 55.462 0" scale="0.5 0.5 0.5" collada-model="assets/Models/Boombox.dae" id="Boombox" sound__music="on:click;src:assets/sound/Deep Breaths (Ableton).wav">
-        <a-entity id="mybutton" ui-button=""></a-entity>
     </a-entity>
     <a-entity position="9.578 1.855 10.313" scale="2.5 2.5 2.5" collada-model="assets/Models/Bed.dae" id="Bed" material="side:double;color:#575757"></a-entity>
     <a-entity position="11.906 0.804 -11.803" collada-model="assets/Models/Server Rack.dae" id="Server Rack"></a-entity>
@@ -161,23 +160,20 @@
     <a-entity position="11.868 1.583 -4.971" rotation="0 -137.62446239042376 0" scale="0.1 0.1 0.1" collada-model="assets/Models/CupOfTea.dae" id="Cup Of Tea"></a-entity>
 
     <!-- https://www.cgtrader.com/free-3d-models/electronics/other/inverse-brastemp-refrigerator -->
-    <a-entity position="0 -0.403 -13.006" scale="4 4 4" collada-model="assets/Models/refrigerator.dae" id="Refrigerator"></a-entity></a-scene>
+    <a-entity position="4.533 -0.403 -13.006" scale="4 4 4" collada-model="assets/Models/refrigerator.dae" id="Refrigerator" gui="name:Refrigerator;properties:position.x, scale.x;position:-4 4.5 3;inheritPosition:true"></a-entity>
+
+    <!-- https://free3d.com/3d-model/light-switch-18539.html -->
+    <a-entity position="-6.865 4.613 -14.565" rotation="90 0 0" obj-model="mtl:assets/Models/lightswitch.mtl;obj:assets/Models/lightswitch.obj" id="Light Switch" material="flatShading:true;ambientOcclusionMapIntensity:0.9"></a-entity>
+
+</a-scene>
     
 <script>
-    document.getElementById('Poster').addEventListener('click', function() {
-        document.getElementById('Light-2').setAttribute('visible', !document.getElementById('Light-2').getAttribute('visible'));
-        document.getElementById('Light-3').setAttribute('visible', !document.getElementById('Light-3').getAttribute('visible'));
+    document.getElementById('Light Switch').addEventListener('click', function() {
+        document.getElementById('Light-1').setAttribute('visible', !document.getElementById('Light-1').getAttribute('visible'));
+        document.getElementById('Light-4').setAttribute('visible', !document.getElementById('Light-4').getAttribute('visible'));
         console.log('light off');
     });
 </script>
-
-<script>
-  var mybutton = document.querySelector('#mybutton');
-  mybutton.addEventListener('pressed', function () {
-    console.log('it works');
-  });
-</script> 
-
 
 
 <a href="blob:http://localhost:8000/a09cd5a5-3f8b-4219-94de-2c2e320ace0a" download="localhost-8000" style="display: none;"></a><a href="blob:http://localhost:8000/0046c7dc-ab73-46fe-beb0-e412bc2c168a" download="localhost-8000" style="display: none;"></a><a href="blob:http://localhost:8000/d66c2e60-5e69-4426-a4a8-ec5b14a8ccaf" download="localhost-8000" style="display: none;"></a><a href="blob:http://localhost:8000/b8983d74-19e9-4201-93bc-3d99a0e4b632" download="localhost-8000" style="display: none;"></a><a href="blob:http://localhost:8000/a5d22a54-b0ec-4fca-bcca-f5406a1e5743" download="Scene" style="display: none;"></a><a href="blob:http://localhost:8000/6366706b-266b-4435-8ea5-3373f594b3d3" download="Scene" style="display: none;"></a><a href="blob:http://localhost:8000/766df288-fa35-4628-b54c-17ac0c1587a6" download="Scene" style="display: none;"></a><a href="blob:http://localhost:8000/28182139-7c49-4981-97ff-183d3cafdf93" download="Scene" style="display: none;"></a></body></html>

@@ -5,8 +5,8 @@
       <author>Blender User</author>
       <authoring_tool>Blender 2.79.0 commit date:2017-09-11, commit time:10:43, hash:5bd8ac9</authoring_tool>
     </contributor>
-    <created>2018-02-20T00:13:59</created>
-    <modified>2018-02-20T00:13:59</modified>
+    <created>2018-02-20T01:49:46</created>
+    <modified>2018-02-20T01:49:46</modified>
     <unit name="meter" meter="1"/>
     <up_axis>Z_UP</up_axis>
   </asset>
@@ -519,9 +519,9 @@
     <geometry id="Cube_010-mesh" name="Cube.010">
       <mesh>
         <source id="Cube_010-mesh-positions">
-          <float_array id="Cube_010-mesh-positions-array" count="24">0.9867878 -1 -1 0.9867878 -1 1.592767 0.9867878 1.014438 -1 0.9867878 1.014438 1.592767 0.9999273 -1 -1 0.9999273 -1 1.592767 0.9999273 1.014438 -1 0.9999273 1.014438 1.592767</float_array>
+          <float_array id="Cube_010-mesh-positions-array" count="48">0.9867878 -1 -1 0.9867878 -1 1.592767 0.9867878 1.014438 -1 0.9867878 1.014438 1.592767 0.9999273 -1 -1 0.9999273 -1 1.592767 0.9999273 1.014438 -1 0.9999273 1.014438 1.592767 -0.9867878 -1 -1 -0.9867878 -1 1.592767 -0.9867878 1.014438 -1 -0.9867878 1.014438 1.592767 -0.9999273 -1 -1 -0.9999273 -1 1.592767 -0.9999273 1.014438 -1 -0.9999273 1.014438 1.592767</float_array>
           <technique_common>
-            <accessor source="#Cube_010-mesh-positions-array" count="8" stride="3">
+            <accessor source="#Cube_010-mesh-positions-array" count="16" stride="3">
               <param name="X" type="float"/>
               <param name="Y" type="float"/>
               <param name="Z" type="float"/>
@@ -541,10 +541,10 @@
         <vertices id="Cube_010-mesh-vertices">
           <input semantic="POSITION" source="#Cube_010-mesh-positions"/>
         </vertices>
-        <triangles material="Material_009-material" count="12">
+        <triangles material="Material_009-material" count="24">
           <input semantic="VERTEX" source="#Cube_010-mesh-vertices" offset="0"/>
           <input semantic="NORMAL" source="#Cube_010-mesh-normals" offset="1"/>
-          <p>1 0 2 0 0 0 3 1 6 1 2 1 7 2 4 2 6 2 5 3 0 3 4 3 6 4 0 4 2 4 3 5 5 5 7 5 1 0 3 0 2 0 3 1 7 1 6 1 7 2 5 2 4 2 5 6 1 6 0 6 6 4 4 4 0 4 3 5 1 5 5 5</p>
+          <p>1 0 2 0 0 0 3 1 6 1 2 1 7 2 4 2 6 2 5 3 0 3 4 3 6 4 0 4 2 4 3 5 5 5 7 5 10 2 9 2 8 2 14 1 11 1 10 1 12 0 15 0 14 0 8 3 13 3 12 3 8 4 14 4 10 4 13 5 11 5 15 5 1 0 3 0 2 0 3 1 7 1 6 1 7 2 5 2 4 2 5 6 1 6 0 6 6 4 4 4 0 4 3 5 1 5 5 5 10 2 11 2 9 2 14 1 15 1 11 1 12 0 13 0 15 0 8 6 9 6 13 6 8 4 12 4 14 4 13 5 9 5 11 5</p>
         </triangles>
       </mesh>
     </geometry>
