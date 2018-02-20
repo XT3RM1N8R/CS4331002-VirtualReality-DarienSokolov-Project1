@@ -94,13 +94,13 @@
     <a-sky color="#ECECEC" material="" geometry=""></a-sky>
  
     <!-- Camera -->
-    <a-entity position="-5.1374473589778376 4 -4.026316645658407" camera="" universal-controls="" id="Camera" rotation="53.92699813686277 -1015.281212971817 0" velocity="-3.499436537827688e-26 0 1.4676124706784595e-27" gamepad-controls="" keyboard-controls="" touch-controls="" hmd-controls="" mouse-controls="" raycaster="showLine:true" cursor="" data-aframe-inspector-original-camera="" line="end:0 0 -6.492000102996827">
+    <a-entity position="-7.998 3.9999999999999996 2.17" camera="" universal-controls="" checkpoint-controls="" id="Camera" rotation="3.5067121653503532 -1216.1602159446822 0" velocity="" gamepad-controls="" keyboard-controls="" touch-controls="" hmd-controls="" mouse-controls="" raycaster="showLine:true" cursor="" data-aframe-inspector-original-camera="" line="end:0 0 -6.492000102996825">
             <a-entity geometry="primitive:ring;radiusInner:0.01;radiusOuter:0.015" material="shader:flat;color:#283644" position="0 0 -0.75" line="end:0 0 -5.742"></a-entity> 
     </a-entity>
     
     
     <!-- Ceiling ; Maps: https://3dtextures.me/2018/02/14/wood-floor-007/ -->
-    <a-entity static-body="sphereRadius:NaN" geometry="depth:50;height:0.1;width:160" position="0 14 0.035" material="ambientOcclusionMap:assets/Models/wall maps/Wood_Floor_007_OCC.jpg;displacementMap:assets/Models/wall maps/Wood_Floor_007_DISP.png;normalMap:assets/Models/wall maps/Wood_Floor_007_NORM.jpg;src:assets/Models/wall maps/Wood_Floor_007_COLOR.jpg" id="Ceiling" scale="0.2 1 0.6"></a-entity>
+    <a-entity static-body="sphereRadius:NaN" geometry="depth:50;height:0.1;width:160" position="0 14 0.035" material="ambientOcclusionMap:assets/Models/wall maps/Wood_Floor_007_OCC.jpg;displacementMap:assets/Models/wall maps/Wood_Floor_007_DISP.png;normalMap:assets/Models/wall maps/Wood_Floor_007_NORM.jpg;src:assets/Models/wall maps/Wood_Floor_007_COLOR.jpg" id="Ceiling" scale="0.2 1 0.6" visible="false"></a-entity>
     <!-- Floor -->
     <a-entity position="0 -0.5 -1.011" scale="1.645 1 1.737" id="Floor" collada-model="assets/Models/Floor.dae"></a-entity>
 
@@ -116,13 +116,28 @@
     </a-entity>
 
     <!-- Lights -->
-    <a-light position="13.414 7.912 -11.848" id="Light-1" intensity="0.82" angle="90" type="ambient" light="intensity:1.5;type:point;decay:10;distance:200" visible="false"></a-light>
+    <a-light position="13.414 7.912 -11.848" id="Light-1" intensity="0.82" angle="90" type="ambient" light="intensity:1.5;type:point;decay:10;distance:200"></a-light>
     <a-light position="-14.634 7.907 10.546" id="Light-2" intensity="0.82" angle="90" type="ambient" light="intensity:1.5;type:point;decay:10;distance:200"></a-light>
     <a-light position="13.424 8.034 10.401" id="Light-3" intensity="0.82" angle="90" type="ambient" light="intensity:1.5;type:point;decay:10;distance:200"></a-light>
-    <a-light position="-14.544 8.037 -12.01" id="Light-4" intensity="0.82" angle="90" type="ambient" light="intensity:1.5;type:point;decay:10;distance:200" visible="false"></a-light>
+    <a-light position="-14.544 8.037 -12.01" id="Light-4" intensity="0.82" angle="90" type="ambient" light="intensity:1.5;type:point;decay:10;distance:200"></a-light>
     
     <!-- Other Models -->
-    <a-entity position="8.199 5.525 7.217" id="Creeper-Coin" rotation="0 329.8725000000026 0" obj-model="obj:assets/Models/creeper_coin/creeper_coin.obj" material="src:images/c.jpg">
+    <a-entity position="8.199 5.6 7.217" id="Creeper-Coin-1" rotation="0 62.94239999999874 0" checkpoint="offset:0 -1.6 0" radius="1" obj-model="obj:assets/Models/creeper_coin/creeper_coin.obj" material="src:images/c.jpg">
+        <a-animation attribute="rotation" dur="2000" easing="linear" from="0 0 0" to="0 360 0" repeat="indefinite"></a-animation>
+    </a-entity>
+    <a-entity position="8.199 5.6 -8.534" id="Creeper-Coin-2" rotation="0 62.94239999999874 0" checkpoint="offset:0 -1.6 0" radius="1" obj-model="obj:assets/Models/creeper_coin/creeper_coin.obj" material="src:images/c.jpg">
+        <a-animation attribute="rotation" dur="2000" easing="linear" from="0 0 0" to="0 360 0" repeat="indefinite"></a-animation>
+    </a-entity>
+    <a-entity position="-0.612 5.6 8.883" id="Creeper-Coin-3" rotation="0 62.94239999999874 0" checkpoint="offset:0 -1.6 0" radius="1" obj-model="obj:assets/Models/creeper_coin/creeper_coin.obj" material="src:images/c.jpg">
+        <a-animation attribute="rotation" dur="2000" easing="linear" from="0 0 0" to="0 360 0" repeat="indefinite"></a-animation>
+    </a-entity>
+    <a-entity position="0.984 5.6 -8.039" id="Creeper-Coin-4" rotation="0 62.94239999999874 0" checkpoint="offset:0 -1.6 0" radius="1" obj-model="obj:assets/Models/creeper_coin/creeper_coin.obj" material="src:images/c.jpg">
+        <a-animation attribute="rotation" dur="2000" easing="linear" from="0 0 0" to="0 360 0" repeat="indefinite"></a-animation>
+    </a-entity>
+    <a-entity position="-5.837 5.6 -8.039" id="Creeper-Coin-5" rotation="0 62.94239999999874 0" checkpoint="offset:0 -1.6 0" radius="1" obj-model="obj:assets/Models/creeper_coin/creeper_coin.obj" material="src:images/c.jpg">
+        <a-animation attribute="rotation" dur="2000" easing="linear" from="0 0 0" to="0 360 0" repeat="indefinite"></a-animation>
+    </a-entity>
+    <a-entity position="-7.998 5.6 2.17" id="Creeper-Coin-6" rotation="0 62.94239999999874 0" checkpoint="offset:0 -1.6 0" radius="1" obj-model="obj:assets/Models/creeper_coin/creeper_coin.obj" material="src:images/c.jpg">
         <a-animation attribute="rotation" dur="2000" easing="linear" from="0 0 0" to="0 360 0" repeat="indefinite"></a-animation>
     </a-entity>
     <a-entity position="12.899 3.529 -7.741" rotation="0 180 0" collada-model="assets/Models/Monitor.dae" id="Monitor"></a-entity>
